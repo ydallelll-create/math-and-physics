@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ADV RESEARCH</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- HOME -->
+    <section id="home" class="screen active">
+
+        <div class="home-content">
+
+            <div class="app-symbol">∿</div>
+
+            <h1>ADV RESEARCH</h1>
+
+            <div class="home-line"></div>
+
+            <h2>Yassine Bechir Dallel</h2>
+
+            <p class="researcher">
+                Researcher & Programmer
+            </p>
+
+            <div class="quote">
+                <p>
+                    "God does not play dice with the universe."
+                </p>
+
+                <span>— Albert Einstein</span>
+            </div>
+
+            <div class="main-menu">
+
+                <button
+                    class="main-card"
+                    onclick="openSection('mathematics')">
+
+                    <div class="card-icon">∑</div>
+
+                    <div class="card-title">
+                        MATHEMATICS
+                    </div>
+
+                    <div class="card-description">
+                        Analysis, algebra, geometry
+                        and mathematical structures.
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="main-card"
+                    onclick="openSection('physics')">
+
+                    <div class="card-icon">⚛</div>
+
+                    <div class="card-title">
+                        PHYSICS
+                    </div>
+
+                    <div class="card-description">
+                        Mechanics, quantum theory,
+                        relativity and theoretical physics.
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="main-card"
+                    onclick="openSection('research')">
+
+                    <div class="card-icon">📚</div>
+
+                    <div class="card-title">
+                        RESEARCH
+                    </div>
+
+                    <div class="card-description">
+                        Create, save and manage
+                        scientific research.
+                    </div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATHEMATICS -->
+    <section id="mathematics" class="screen">
+
+        <div class="section-container">
+
+            <button
+                class="back-button"
+                onclick="goHome()">
+                ← BACK
+            </button>
+
+            <div class="section-heading">
+
+                <div class="large-symbol">∑</div>
+
+                <div>
+                    <div class="section-label">
+                        ADV RESEARCH / MATHEMATICS
+                    </div>
+
+                    <h1>MATHEMATICS</h1>
+
+                    <p>
+                        Mathematical theory and research.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dossier-grid">
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Calculus')">
+
+                    <span class="dossier-symbol">∫</span>
+
+                    <strong>CALCULUS</strong>
+
+                    <small>
+                        Limits, derivatives, integrals
+                        and infinite series.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Real Analysis')">
+
+                    <span class="dossier-symbol">ℝ</span>
+
+                    <strong>REAL ANALYSIS</strong>
+
+                    <small>
+                        Sequences, functions,
+                        continuity and convergence.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Complex Analysis')">
+
+                    <span class="dossier-symbol">ℂ</span>
+
+                    <strong>COMPLEX ANALYSIS</strong>
+
+                    <small>
+                        Holomorphic functions,
+                        residues and contour integration.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Topology')">
+
+                    <span class="dossier-symbol">T</span>
+
+                    <strong>TOPOLOGY</strong>
+
+                    <small>
+                        Open sets, closed sets,
+                        continuity and spaces.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Vector Calculus')">
+
+                    <span class="dossier-symbol">∇</span>
+
+                    <strong>VECTOR CALCULUS</strong>
+
+                    <small>
+                        Gradient, divergence, curl
+                        and line integrals.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Linear Algebra')">
+
+                    <span class="dossier-symbol">A</span>
+
+                    <strong>LINEAR ALGEBRA</strong>
+
+                    <small>
+                        Vector spaces, matrices,
+                        eigenvalues and operators.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Sequences & Series')">
+
+                    <span class="dossier-symbol">Σ</span>
+
+                    <strong>SEQUENCES & SERIES</strong>
+
+                    <small>
+                        Convergence, power series
+                        and infinite sums.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Differential Equations')">
+
+                    <span class="dossier-symbol">∂</span>
+
+                    <strong>DIFFERENTIAL EQUATIONS</strong>
+
+                    <small>
+                        ODEs, PDEs and mathematical
+                        models of physical systems.
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHYSICS -->
+    <section id="physics" class="screen">
+
+        <div class="section-container">
+
+            <button
+                class="back-button"
+                onclick="goHome()">
+                ← BACK
+            </button>
+
+            <div class="section-heading">
+
+                <div class="large-symbol">⚛</div>
+
+                <div>
+                    <div class="section-label">
+                        ADV RESEARCH / PHYSICS
+                    </div>
+
+                    <h1>PHYSICS</h1>
+
+                    <p>
+                        Theoretical and mathematical physics.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dossier-grid">
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Classical Mechanics')">
+
+                    <span class="dossier-symbol">F</span>
+
+                    <strong>CLASSICAL MECHANICS</strong>
+
+                    <small>
+                        Newtonian mechanics,
+                        forces and dynamics.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Lagrangian Mechanics')">
+
+                    <span class="dossier-symbol">L</span>
+
+                    <strong>LAGRANGIAN MECHANICS</strong>
+
+                    <small>
+                        Generalized coordinates,
+                        action and Euler-Lagrange equations.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Hamiltonian Mechanics')">
+
+                    <span class="dossier-symbol">H</span>
+
+                    <strong>HAMILTONIAN MECHANICS</strong>
+
+                    <small>
+                        Phase space, canonical variables
+                        and Hamiltonian dynamics.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Quantum Mechanics')">
+
+                    <span class="dossier-symbol">ψ</span>
+
+                    <strong>QUANTUM MECHANICS</strong>
+
+                    <small>
+                        Schrödinger equation,
+                        operators and Hilbert spaces.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Relativity')">
+
+                    <span class="dossier-symbol">c</span>
+
+                    <strong>RELATIVITY</strong>
+
+                    <small>
+                        Spacetime, Lorentz transformations
+                        and relativistic dynamics.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Mathematical Physics')">
+
+                    <span class="dossier-symbol">∂</span>
+
+                    <strong>MATHEMATICAL PHYSICS</strong>
+
+                    <small>
+                        Differential equations,
+                        Fourier analysis and operators.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Field Theory')">
+
+                    <span class="dossier-symbol">Ω</span>
+
+                    <strong>FIELD THEORY</strong>
+
+                    <small>
+                        Fields, symmetries, actions
+                        and theoretical structures.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="dossier"
+                    onclick="openTool('Statistical Physics')">
+
+                    <span class="dossier-symbol">Z</span>
+
+                    <strong>STATISTICAL PHYSICS</strong>
+
+                    <small>
+                        Ensembles, entropy,
+                        partition functions and thermodynamics.
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+    <section id="research" class="screen">
+
+        <div class="section-container">
+
+            <button
+                class="back-button"
+                onclick="goHome()">
+                ← BACK
+            </button>
+
+            <div class="section-heading">
+
+                <div class="large-symbol">📚</div>
+
+                <div>
+                    <div class="section-label">
+                        ADV RESEARCH / LABORATORY
+                    </div>
+
+                    <h1>RESEARCH</h1>
+
+                    <p>
+                        Scientific research workspace.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="research-menu">
+
+                <button
+                    class="research-action"
+                    onclick="newResearch()">
+
+                    <span>＋</span>
+
+                    <div>
+                        <strong>NEW RESEARCH</strong>
+
+                        <small>
+                            Start a new scientific paper.
+                        </small>
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="research-action"
+                    onclick="showSavedResearch()">
+
+                    <span>◈</span>
+
+                    <div>
+                        <strong>SAVED RESEARCH</strong>
+
+                        <small>
+                            Open your previous projects.
+                        </small>
+                    </div>
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="research-area"
+                class="research-area">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOOL SCREEN -->
+    <section id="tool" class="screen">
+
+        <div class="section-container">
+
+            <button
+                class="back-button"
+                onclick="goBackFromTool()">
+                ← BACK
+            </button>
+
+            <div class="tool-header">
+
+                <div id="tool-symbol"
+                     class="large-symbol">
+                    ∿
+                </div>
+
+                <div>
+
+                    <div
+                        id="tool-category"
+                        class="section-label">
+                    </div>
+
+                    <h1 id="tool-title">
+                    </h1>
+
+                    <p id="tool-description">
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="tool-content"
+                class="tool-content">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAPER EDITOR -->
+    <section id="editor" class="screen">
+
+        <div class="section-container">
+
+            <div class="editor-top">
+
+                <button
+                    class="back-button"
+                    onclick="closeEditor()">
+                    ← BACK
+                </button>
+
+                <button
+                    class="save-button"
+                    onclick="saveResearch()">
+                    💾 SAVE RESEARCH
+                </button>
+
+            </div>
+
+
+            <div class="paper">
+
+                <div class="paper-top">
+
+                    <div class="paper-label">
+                        ADV RESEARCH PAPER
+                    </div>
+
+                    <input
+                        id="research-title"
+                        type="text"
+                        placeholder="Research title..."
+                    >
+
+                    <div class="paper-info">
+
+                        <span>
+                            AUTHOR:
+                            <strong>
+                                Yassine Bechir Dallel
+                            </strong>
+                        </span>
+
+                        <span>
+                            DATE:
+                            <strong id="research-date">
+                            </strong>
+                        </span>
+
+                        <span>
+                            FIELD:
+                            <strong id="research-field-display">
+                            </strong>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="paper-tools">
+
+                    <button onclick="insertHeading()">
+                        H2
+                    </button>
+
+                    <button onclick="insertBold()">
+                        B
+                    </button>
+
+                    <button onclick="insertEquation()">
+                        ∑ Equation
+                    </button>
+
+                    <button onclick="insertImage()">
+                        🖼 Image
+                    </button>
+
+                    <button onclick="insertVideo()">
+                        ▶ Video
+                    </button>
+
+                </div>
+
+
+                <textarea
+                    id="research-content"
+                    placeholder="Write your research here...
+
+Use normal text and mathematical notation.
+
+Example:
+
+$$
+\frac{d}{dt}
+\left(
+\frac{\partial L}
+{\partial \dot q_i}
+\right)
+-
+\frac{\partial L}
+{\partial q_i}
+=0
+$$
+
+Inline mathematics:
+
+$E=mc^2$
+">
+                </textarea>
+
+
+                <div class="preview-label">
+                    LIVE PREVIEW
+                </div>
+
+                <div
+                    id="research-preview"
+                    class="research-preview">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
