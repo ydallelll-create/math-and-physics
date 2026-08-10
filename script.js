@@ -1319,3 +1319,22 @@ document.addEventListener(
 
     }
 );
+// ==========================================
+// SUPABASE CONNECTION TEST
+// ==========================================
+
+async function testSupabaseConnection() {
+    const { data, error } = await supabaseClient
+        .from("subjects")
+        .select("*");
+
+    if (error) {
+        console.error("Supabase connection error:", error);
+        return;
+    }
+
+    console.log("SUPABASE CONNECTED!");
+    console.log("Subjects:", data);
+}
+
+testSupabaseConnection();
