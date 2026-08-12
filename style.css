@@ -2,35 +2,57 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
+
     margin: 0;
     padding: 0;
 
+    min-height: 100%;
+
     background: #050505;
+
     color: #eeeeee;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
 }
+
 
 body {
+
     min-height: 100vh;
+
 }
 
 
-/* ================= PAGES ================= */
+/* =====================================================
+                         PAGES
+===================================================== */
 
 .page {
+
     display: none;
+
     min-height: 100vh;
+
 }
+
 
 .page.active {
+
     display: block;
+
 }
 
 
-/* ================= HOME ================= */
+/* =====================================================
+                          HOME
+===================================================== */
 
 .home {
 
@@ -38,19 +60,34 @@ body {
 
     text-align: center;
 
-    padding: 35px 5vw 80px;
+    padding:
+        35px
+        5vw
+        80px;
+
 }
 
 
 .home h1 {
 
-    margin: 5px 0 0;
+    margin:
+        5px
+        0
+        0;
 
-    font-size: clamp(58px, 8vw, 105px);
+    font-size:
+        clamp(
+            58px,
+            8vw,
+            105px
+        );
 
     font-weight: 800;
 
     letter-spacing: 4px;
+
+    color: #ffffff;
+
 }
 
 
@@ -58,43 +95,56 @@ body {
 
     margin-top: 48px;
 
-    color: #bdbdbd;
+    color: #d0d0d0;
 
     font-size: 19px;
+
 }
 
 
 .quote {
 
-    margin: 82px auto 0;
+    margin:
+        82px
+        auto
+        0;
 
     max-width: 700px;
+
 }
 
 
 .quote p {
 
-    margin: 0 0 16px;
+    margin:
+        0
+        0
+        16px;
 
     font-size: 19px;
 
     font-style: italic;
+
+    color: #eeeeee;
+
 }
 
 
 .quote span {
 
-    color: #999;
+    color: #aaaaaa;
 
     font-size: 15px;
 
     font-style: italic;
+
 }
 
 
 .identity {
 
     margin-top: 78px;
+
 }
 
 
@@ -103,6 +153,9 @@ body {
     margin: 0;
 
     font-size: 26px;
+
+    color: #ffffff;
+
 }
 
 
@@ -110,24 +163,38 @@ body {
 
     margin-top: 27px;
 
-    color: #999;
+    color: #aaaaaa;
+
 }
 
 
-/* ================= MAIN BUTTONS ================= */
+/* =====================================================
+                    MAIN APP BUTTONS
+===================================================== */
 
 .main-buttons {
 
-    width: min(700px, 100%);
+    width:
+        min(
+            700px,
+            100%
+        );
 
-    margin: 70px auto 0;
+    margin:
+        70px
+        auto
+        0;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(
+            3,
+            1fr
+        );
 
     gap: 16px;
+
 }
 
 
@@ -135,37 +202,68 @@ body {
 
     min-height: 72px;
 
-    border: 1px solid #353535;
+    border:
+        1px solid
+        #3a3a3a;
 
-    background: #080808;
+    background:
+        #090909;
+
+    color:
+        #eeeeee;
 
     cursor: pointer;
 
     font-weight: bold;
 
+    font-size: 14px;
+
     letter-spacing: 1px;
 
-    transition: .2s;
+    transition:
+        background
+        0.2s,
+        border-color
+        0.2s,
+        color
+        0.2s;
+
 }
 
 
 .main-buttons button:hover {
 
-    background: #111;
+    background:
+        #151515;
 
-    border-color: #777;
+    border-color:
+        #888888;
+
+    color:
+        #ffffff;
+
 }
 
 
-/* ================= FEATURED ================= */
+/* =====================================================
+                     FEATURED RESEARCH
+===================================================== */
 
 .featured {
 
-    width: min(950px, 100%);
+    width:
+        min(
+            950px,
+            100%
+        );
 
-    margin: 100px auto 0;
+    margin:
+        100px
+        auto
+        0;
 
     text-align: left;
+
 }
 
 
@@ -177,7 +275,8 @@ body {
 
     letter-spacing: 3px;
 
-    color: #aaa;
+    color: #bbbbbb;
+
 }
 
 
@@ -185,41 +284,59 @@ body {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: center;
 
     gap: 30px;
 
-    border: 1px solid #303030;
+    border:
+        1px solid
+        #303030;
 
-    background: #080808;
+    background:
+        #080808;
 
-    padding: 28px 30px;
+    padding:
+        28px
+        30px;
 
     margin-bottom: 16px;
+
 }
 
 
 .research-card h3 {
 
-    margin: 0 0 12px;
+    margin:
+        0
+        0
+        12px;
 
     font-size: 21px;
+
+    color: #ffffff;
+
 }
 
 
 .research-card p {
 
-    margin: 0 0 9px;
+    margin:
+        0
+        0
+        9px;
 
-    color: #aaa;
+    color: #bbbbbb;
+
 }
 
 
 .research-card small {
 
-    color: #777;
+    color: #888888;
+
 }
 
 
@@ -227,59 +344,87 @@ body {
 
     flex-shrink: 0;
 
-    border: 1px solid #444;
+    border:
+        1px solid
+        #555555;
 
-    background: transparent;
+    background:
+        transparent;
 
-    padding: 12px 16px;
+    padding:
+        12px
+        16px;
 
     cursor: pointer;
 
-    color: #ccc;
+    color: #eeeeee;
+
 }
 
 
 .research-card button:hover {
 
-    border-color: #888;
+    border-color:
+        #999999;
 
-    color: white;
+    color:
+        #ffffff;
+
 }
 
 
-/* ================= GENERAL ================= */
+/* =====================================================
+                      GENERAL PAGES
+===================================================== */
 
 .container {
 
-    width: min(1050px, 90%);
+    width:
+        min(
+            1050px,
+            90%
+        );
 
     margin: auto;
 
-    padding: 38px 0 80px;
+    padding:
+        38px
+        0
+        80px;
+
 }
 
 
 .back {
 
-    background: transparent;
+    background:
+        transparent;
 
-    border: 1px solid #333;
+    border:
+        1px solid
+        #444444;
 
-    padding: 10px 15px;
+    padding:
+        10px
+        15px;
 
     cursor: pointer;
 
-    color: #aaa;
+    color: #dddddd;
 
-    margin-bottom: 55px;
+    margin-bottom:
+        55px;
+
 }
 
 
 .back:hover {
 
-    color: white;
+    color: #ffffff;
 
-    border-color: #777;
+    border-color:
+        #888888;
+
 }
 
 
@@ -289,17 +434,23 @@ body {
 
     gap: 22px;
 
-    align-items: baseline;
+    align-items:
+        baseline;
+
 }
 
 
 .title span {
 
-    color: #666;
+    color:
+        #777777;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
+
 }
 
 
@@ -307,9 +458,19 @@ body {
 
     margin: 0;
 
-    font-size: clamp(38px, 5vw, 64px);
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            64px
+        );
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
+
+    color:
+        #ffffff;
+
 }
 
 
@@ -317,24 +478,35 @@ body {
 
     max-width: 750px;
 
-    color: #999;
+    color: #aaaaaa;
 
     line-height: 1.8;
 
-    margin: 20px 0 50px 38px;
+    margin:
+        20px
+        0
+        50px
+        38px;
+
 }
 
 
-/* ================= CHAPTERS ================= */
+/* =====================================================
+                         CHAPTERS
+===================================================== */
 
 .chapter-list {
 
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(
+            2,
+            1fr
+        );
 
     gap: 15px;
+
 }
 
 
@@ -344,23 +516,37 @@ body {
 
     padding: 27px;
 
-    background: #080808;
+    background:
+        #080808;
 
-    border: 1px solid #292929;
+    border:
+        1px solid
+        #292929;
+
+    color:
+        #eeeeee;
 
     text-align: left;
 
     cursor: pointer;
 
-    transition: .2s;
+    transition:
+        background
+        0.2s,
+        border-color
+        0.2s;
+
 }
 
 
 .chapter-list button:hover {
 
-    border-color: #777;
+    border-color:
+        #777777;
 
-    background: #0c0c0c;
+    background:
+        #0d0d0d;
+
 }
 
 
@@ -368,9 +554,12 @@ body {
 
     display: block;
 
-    color: #666;
+    color:
+        #777777;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
+
 }
 
 
@@ -380,7 +569,12 @@ body {
 
     font-size: 20px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
+
+    color:
+        #ffffff;
+
 }
 
 
@@ -388,11 +582,15 @@ body {
 
     display: block;
 
-    color: #999;
+    color:
+        #aaaaaa;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 
-    margin-top: 12px;
+    margin-top:
+        12px;
+
 }
 
 
@@ -400,242 +598,401 @@ body {
 
     display: block;
 
-    margin-top: 20px;
+    margin-top:
+        20px;
 
-    color: #aaa;
+    color:
+        #dddddd;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
+
 }
 
 
-/* ================= CONTENT ================= */
+/* =====================================================
+                         CONTENT
+===================================================== */
 
 .content {
 
-    max-width: 900px;
+    max-width:
+        900px;
+
 }
 
 
 .number {
 
-    color: #666;
+    color:
+        #777777;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
+
 }
 
 
 .content h1 {
 
-    font-size: clamp(38px, 5vw, 62px);
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            62px
+        );
 
-    margin: 8px 0 15px;
+    margin:
+        8px
+        0
+        15px;
+
+    color:
+        #ffffff;
+
 }
 
 
 .lead {
 
-    color: #999;
+    color:
+        #aaaaaa;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    margin-bottom: 55px;
+    margin-bottom:
+        55px;
+
 }
 
 
 .content-section {
 
-    border-top: 1px solid #282828;
+    border-top:
+        1px solid
+        #282828;
 
-    padding: 30px 0;
+    padding:
+        30px
+        0;
+
 }
 
 
 .content-section h2 {
 
-    margin: 0 0 18px;
+    margin:
+        0
+        0
+        18px;
 
-    font-size: 23px;
+    font-size:
+        23px;
+
+    color:
+        #ffffff;
+
 }
 
 
 .content-section p,
 .content-section li {
 
-    color: #b0b0b0;
+    color:
+        #bdbdbd;
 
-    line-height: 1.85;
+    line-height:
+        1.85;
+
 }
 
 
 .formula {
 
-    border: 1px solid #292929;
+    border:
+        1px solid
+        #292929;
 
-    background: #080808;
+    background:
+        #080808;
 
-    padding: 20px;
+    color:
+        #ffffff;
 
-    margin: 22px 0;
+    padding:
+        20px;
 
-    overflow-x: auto;
+    margin:
+        22px
+        0;
+
+    overflow-x:
+        auto;
+
 }
 
 
 .proof {
 
-    border-left: 2px solid #666;
+    border-left:
+        2px solid
+        #777777;
 
-    padding: 15px 20px;
+    padding:
+        15px
+        20px;
 
-    background: #090909;
+    background:
+        #090909;
 
-    margin: 20px 0;
+    margin:
+        20px
+        0;
+
+    color:
+        #dddddd;
+
 }
 
 
-/* ================= TOPICS ================= */
+/* =====================================================
+                         TOPICS
+===================================================== */
 
 .topic-list {
 
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(
+            2,
+            1fr
+        );
 
     gap: 12px;
+
 }
 
 
 .topic-list button {
 
-    min-height: 120px;
+    min-height:
+        120px;
 
-    padding: 20px;
+    padding:
+        20px;
 
-    background: #080808;
+    background:
+        #080808;
 
-    border: 1px solid #292929;
+    border:
+        1px solid
+        #292929;
 
-    text-align: left;
+    color:
+        #eeeeee;
 
-    cursor: pointer;
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
 }
 
 
 .topic-list button:hover {
 
-    border-color: #777;
+    border-color:
+        #777777;
+
+    background:
+        #0d0d0d;
+
 }
 
 
 .topic-list span {
 
-    color: #666;
+    color:
+        #777777;
 
-    margin-right: 10px;
+    margin-right:
+        10px;
+
 }
 
 
 .topic-list strong {
 
-    font-size: 17px;
+    font-size:
+        17px;
+
+    color:
+        #ffffff;
+
 }
 
 
 .topic-list small {
 
-    display: block;
+    display:
+        block;
 
-    margin-top: 12px;
+    margin-top:
+        12px;
 
-    color: #999;
+    color:
+        #aaaaaa;
 
-    line-height: 1.5;
+    line-height:
+        1.5;
+
 }
 
 
-/* ================= RESEARCH ================= */
+/* =====================================================
+                         RESEARCH
+===================================================== */
 
 .research-tools {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(
+            3,
+            1fr
+        );
 
-    gap: 15px;
+    gap:
+        15px;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
+
 }
 
 
 .research-tools button {
 
-    min-height: 140px;
+    min-height:
+        140px;
 
-    padding: 22px;
+    padding:
+        22px;
 
-    border: 1px solid #292929;
+    border:
+        1px solid
+        #292929;
 
-    background: #080808;
+    background:
+        #080808;
 
-    text-align: left;
+    color:
+        #eeeeee;
 
-    cursor: pointer;
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
 }
 
 
 .research-tools button:hover {
 
-    border-color: #777;
+    border-color:
+        #777777;
+
+    background:
+        #0d0d0d;
+
 }
 
 
 .research-tools strong {
 
-    display: block;
+    display:
+        block;
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
+
+    color:
+        #ffffff;
+
 }
 
 
 .research-tools small {
 
-    display: block;
+    display:
+        block;
 
-    margin-top: 12px;
+    margin-top:
+        12px;
 
-    color: #999;
+    color:
+        #aaaaaa;
 
-    line-height: 1.5;
+    line-height:
+        1.5;
+
 }
 
 
 .editor {
 
-    border-top: 1px solid #292929;
+    border-top:
+        1px solid
+        #292929;
 
-    padding-top: 25px;
+    padding-top:
+        25px;
 
-    max-width: 900px;
+    max-width:
+        900px;
+
+}
+
+
+.editor h2 {
+
+    color:
+        #ffffff;
+
 }
 
 
 .editor label {
 
-    display: block;
+    display:
+        block;
 
-    margin: 17px 0 7px;
+    margin:
+        17px
+        0
+        7px;
 
-    color: #aaa;
+    color:
+        #bbbbbb;
+
 }
 
 
@@ -643,109 +1000,186 @@ body {
 .editor select,
 .editor textarea {
 
-    width: 100%;
+    width:
+        100%;
 
-    background: #080808;
+    background:
+        #080808;
 
-    color: white;
+    color:
+        #ffffff;
 
-    border: 1px solid #333;
+    border:
+        1px solid
+        #333333;
 
-    padding: 13px;
+    padding:
+        13px;
 
-    outline: none;
+    outline:
+        none;
+
+}
+
+
+.editor input::placeholder,
+.editor textarea::placeholder {
+
+    color:
+        #777777;
+
 }
 
 
 .editor textarea {
 
-    min-height: 320px;
+    min-height:
+        320px;
 
-    resize: vertical;
+    resize:
+        vertical;
+
 }
 
 
 .editor-actions {
 
-    margin-top: 15px;
+    margin-top:
+        15px;
 
-    display: flex;
+    display:
+        flex;
 
-    gap: 10px;
+    gap:
+        10px;
+
 }
 
 
 .editor-actions button {
 
-    border: 1px solid #555;
+    border:
+        1px solid
+        #555555;
 
-    background: #eee;
+    background:
+        #eeeeee;
 
-    color: #050505;
+    color:
+        #050505;
 
-    padding: 10px 17px;
+    padding:
+        10px
+        17px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
+
 }
 
 
+/* =====================================================
+                     SAVED RESEARCH
+===================================================== */
+
 .saved {
 
-    margin-top: 55px;
+    margin-top:
+        55px;
+
+}
+
+
+.saved h2 {
+
+    color:
+        #ffffff;
+
 }
 
 
 .saved article {
 
-    border-top: 1px solid #292929;
+    border-top:
+        1px solid
+        #292929;
 
-    padding: 25px 0;
+    padding:
+        25px
+        0;
+
 }
 
 
 .saved h3 {
 
-    margin: 0 0 8px;
+    margin:
+        0
+        0
+        8px;
+
+    color:
+        #ffffff;
+
 }
 
 
 .meta {
 
-    color: #777;
+    color:
+        #777777;
 
-    font-size: 13px;
+    font-size:
+        13px;
+
 }
 
 
 .saved-text {
 
-    color: #aaa;
+    color:
+        #aaaaaa;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 
-    white-space: pre-wrap;
+    white-space:
+        pre-wrap;
 
-    margin-top: 15px;
+    margin-top:
+        15px;
+
 }
 
 
 .delete {
 
-    margin-top: 15px;
+    margin-top:
+        15px;
 
-    border: 1px solid #444;
+    border:
+        1px solid
+        #444444;
 
-    background: transparent;
+    background:
+        transparent;
 
-    color: #aaa;
+    color:
+        #dddddd;
 
-    padding: 8px 12px;
+    padding:
+        8px
+        12px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
+
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+                         MOBILE
+===================================================== */
 
 @media (max-width: 760px) {
 
@@ -754,18 +1188,28 @@ body {
     .topic-list,
     .research-tools {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
+
     }
+
 
     .research-card {
 
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        align-items: flex-start;
+        align-items:
+            flex-start;
+
     }
+
 
     .description {
 
-        margin-left: 0;
+        margin-left:
+            0;
+
     }
+
 }
