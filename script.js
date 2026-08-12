@@ -1,1340 +1,1120 @@
-// ============================================
-// ADV RESEARCH V2
-// ============================================
+/* =====================================================
+ADV RESEARCH — V3
+GitHub-only version
+===================================================== */
 
-let currentSection = "home";
-let previousSection = "home";
+/* =====================================================
+PAGE SYSTEM
+===================================================== */
 
-let researchProjects =
-    JSON.parse(
-        localStorage.getItem("ADV_RESEARCH_PROJECTS") || "[]"
-    );
+function showPage(pageId) {
 
-let currentResearchId = null;
+```
+document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+});
 
+const page = document.getElementById(pageId);
 
-// ============================================
-// NAVIGATION
-// ============================================
-
-function showScreen(id) {
-
-    document
-        .querySelectorAll(".screen")
-        .forEach(function(screen) {
-
-            screen.classList.remove("active");
-
-        });
-
-    const target =
-        document.getElementById(id);
-
-    if (target) {
-
-        target.classList.add("active");
-
-    }
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+if (!page) {
+    console.error("Page not found:", pageId);
+    return;
 }
 
+page.classList.add("active");
 
-function openSection(section) {
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 
-    previousSection =
-        currentSection;
-
-    currentSection =
-        section;
-
-    showScreen(section);
-
-    if (section === "research") {
-
-        showSavedResearch();
-
-    }
-}
-
-
-function goHome() {
-
-    previousSection =
-        currentSection;
-
-    currentSection =
-        "home";
-
-    showScreen("home");
+typesetMath();
+```
 
 }
 
+/* =====================================================
+MATHJAX
+===================================================== */
 
-function goBackFromTool() {
+function typesetMath() {
 
-    showScreen(previousSection);
+```
+if (
+    window.MathJax &&
+    typeof MathJax.typesetPromise === "function"
+) {
+    MathJax.typesetPromise();
+}
+```
 
-    currentSection =
-        previousSection;
 }
 
+/* =====================================================
+CHAPTER SYSTEM
+===================================================== */
 
-// ============================================
-// TOOL DATABASE
-// ============================================
+function openChapter(chapter) {
 
-const toolData = {
+```
+if (chapter === "calculus") {
+    showPage("calculus");
+    return;
+}
 
-    "Calculus": {
+showPage(chapter);
+```
 
-        category: "MATHEMATICS / ANALYSIS",
+}
 
-        symbol: "∫",
-
-        description:
-            "The mathematical study of change, accumulation and infinite processes.",
-
-        boxes: [
-
-            [
-                "Limits",
-                "Study limiting behaviour and continuity.",
-                "$$\\lim_{x\\to a}f(x)$$"
-            ],
-
-            [
-                "Derivatives",
-                "Study rates of change and tangent behaviour.",
-                "$$f'(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$$"
-            ],
-
-            [
-                "Integrals",
-                "Study accumulation and areas.",
-                "$$\\int_a^b f(x)\\,dx$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Real Analysis": {
-
-        category: "MATHEMATICS / ANALYSIS",
-
-        symbol: "ℝ",
-
-        description:
-            "Rigorous analysis of real-valued functions and sequences.",
-
-        boxes: [
-
-            [
-                "Sequences",
-                "Convergence, boundedness and subsequences.",
-                "$$a_n\\to L$$"
-            ],
-
-            [
-                "Continuity",
-                "Rigorous study of continuous functions.",
-                "$$\\lim_{x\\to a}f(x)=f(a)$$"
-            ],
-
-            [
-                "Convergence",
-                "Study convergence of sequences and series.",
-                "$$\\sum_{n=1}^{\\infty}a_n$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Complex Analysis": {
-
-        category: "MATHEMATICS / ANALYSIS",
-
-        symbol: "ℂ",
-
-        description:
-            "The theory of functions of a complex variable.",
-
-        boxes: [
-
-            [
-                "Holomorphic Functions",
-                "Study complex differentiability and analytic functions.",
-                "$$f'(z)=\\lim_{h\\to0}\\frac{f(z+h)-f(z)}{h}$$"
-            ],
-
-            [
-                "Contour Integrals",
-                "Integrate complex functions along paths.",
-                "$$\\int_\\gamma f(z)\\,dz$$"
-            ],
-
-            [
-                "Residues",
-                "Use isolated singularities and residues.",
-                "$$\\operatorname{Res}(f,z_0)$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Topology": {
-
-        category: "MATHEMATICS / PURE MATHEMATICS",
-
-        symbol: "T",
-
-        description:
-            "The study of spaces, continuity and properties preserved by deformation.",
-
-        boxes: [
-
-            [
-                "Open Sets",
-                "Study neighbourhoods and open subsets.",
-                "$$U\\subseteq X$$"
-            ],
-
-            [
-                "Closed Sets",
-                "Study closed subsets and limit points.",
-                "$$\\overline{A}=A$$"
-            ],
-
-            [
-                "Continuity",
-                "Study continuous mappings between spaces.",
-                "$$f:X\\to Y$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Vector Calculus": {
-
-        category: "MATHEMATICS / CALCULUS",
-
-        symbol: "∇",
-
-        description:
-            "Calculus of scalar and vector fields.",
-
-        boxes: [
-
-            [
-                "Gradient",
-                "Direction of greatest increase.",
-                "$$\\nabla f$$"
-            ],
-
-            [
-                "Divergence",
-                "Measure of local field expansion.",
-                "$$\\nabla\\cdot\\mathbf F$$"
-            ],
-
-            [
-                "Curl",
-                "Measure of local rotation.",
-                "$$\\nabla\\times\\mathbf F$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Linear Algebra": {
-
-        category: "MATHEMATICS / ALGEBRA",
-
-        symbol: "A",
-
-        description:
-            "Vector spaces, linear transformations and operators.",
-
-        boxes: [
-
-            [
-                "Vector Spaces",
-                "Study vectors, bases and subspaces.",
-                "$$V\\text{ over }\\mathbb R$$"
-            ],
-
-            [
-                "Matrices",
-                "Study matrix transformations and operations.",
-                "$$AB$$"
-            ],
-
-            [
-                "Eigenvalues",
-                "Study eigenvectors and invariant directions.",
-                "$$A\\mathbf v=\\lambda\\mathbf v$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Sequences & Series": {
-
-        category: "MATHEMATICS / ANALYSIS",
-
-        symbol: "Σ",
-
-        description:
-            "Infinite sequences, sums and convergence.",
-
-        boxes: [
-
-            [
-                "Sequences",
-                "Study ordered infinite collections.",
-                "$$a_1,a_2,a_3,\\ldots$$"
-            ],
-
-            [
-                "Series",
-                "Study infinite sums.",
-                "$$\\sum_{n=1}^{\\infty}a_n$$"
-            ],
-
-            [
-                "Power Series",
-                "Study expansions around a point.",
-                "$$\\sum_{n=0}^{\\infty}a_n(x-x_0)^n$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Differential Equations": {
-
-        category: "MATHEMATICS / ANALYSIS",
-
-        symbol: "∂",
-
-        description:
-            "Equations involving unknown functions and their derivatives.",
-
-        boxes: [
-
-            [
-                "ODE",
-                "Ordinary differential equations.",
-                "$$y'=f(x,y)$$"
-            ],
-
-            [
-                "PDE",
-                "Partial differential equations.",
-                "$$\\frac{\\partial u}{\\partial t}$$"
-            ],
-
-            [
-                "Wave Equation",
-                "A fundamental equation of mathematical physics.",
-                "$$\\frac{\\partial^2u}{\\partial t^2}=c^2\\nabla^2u$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Classical Mechanics": {
-
-        category: "PHYSICS / MECHANICS",
-
-        symbol: "F",
-
-        description:
-            "The mathematical description of motion and forces.",
-
-        boxes: [
-
-            [
-                "Newtonian Mechanics",
-                "Forces and equations of motion.",
-                "$$\\mathbf F=m\\mathbf a$$"
-            ],
-
-            [
-                "Momentum",
-                "Linear momentum and conservation.",
-                "$$\\mathbf p=m\\mathbf v$$"
-            ],
-
-            [
-                "Dynamics",
-                "Motion under applied forces.",
-                "$$\\mathbf F=\\frac{d\\mathbf p}{dt}$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Lagrangian Mechanics": {
-
-        category: "PHYSICS / CLASSICAL MECHANICS",
-
-        symbol: "L",
-
-        description:
-            "A formulation of mechanics based on the Lagrangian and stationary action.",
-
-        boxes: [
-
-            [
-                "Lagrangian",
-                "Difference between kinetic and potential energy.",
-                "$$L=T-V$$"
-            ],
-
-            [
-                "Euler-Lagrange",
-                "Equations governing generalized coordinates.",
-                "$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial\\dot q_i}\\right)-\\frac{\\partial L}{\\partial q_i}=0$$"
-            ],
-
-            [
-                "Action",
-                "The principle of stationary action.",
-                "$$S=\\int L\\,dt$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Hamiltonian Mechanics": {
-
-        category: "PHYSICS / CLASSICAL MECHANICS",
-
-        symbol: "H",
-
-        description:
-            "Hamiltonian formulation using phase-space variables.",
-
-        boxes: [
-
-            [
-                "Hamiltonian",
-                "Energy function in phase space.",
-                "$$H=\\sum_i p_i\\dot q_i-L$$"
-            ],
-
-            [
-                "Hamilton Equations",
-                "Canonical equations of motion.",
-                "$$\\dot q_i=\\frac{\\partial H}{\\partial p_i}$$"
-            ],
-
-            [
-                "Phase Space",
-                "State of a system in position-momentum space.",
-                "$$(q_i,p_i)$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Quantum Mechanics": {
-
-        category: "PHYSICS / QUANTUM THEORY",
-
-        symbol: "ψ",
-
-        description:
-            "The mathematical framework describing quantum systems.",
-
-        boxes: [
-
-            [
-                "Schrödinger Equation",
-                "Time evolution of a quantum state.",
-                "$$i\\hbar\\frac{\\partial\\psi}{\\partial t}=\\hat H\\psi$$"
-            ],
-
-            [
-                "Operators",
-                "Observables represented by operators.",
-                "$$\\hat A\\psi=a\\psi$$"
-            ],
-
-            [
-                "Hilbert Spaces",
-                "The vector-space structure of quantum states.",
-                "$$\\langle\\phi|\\psi\\rangle$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Relativity": {
-
-        category: "PHYSICS / RELATIVITY",
-
-        symbol: "c",
-
-        description:
-            "Spacetime, Lorentz symmetry and relativistic physics.",
-
-        boxes: [
-
-            [
-                "Spacetime",
-                "Events represented in four-dimensional spacetime.",
-                "$$x^\\mu=(ct,x,y,z)$$"
-            ],
-
-            [
-                "Lorentz Transformations",
-                "Transform coordinates between inertial frames.",
-                "$$x'^\\mu=\\Lambda^\\mu_{\\ \\nu}x^\\nu$$"
-            ],
-
-            [
-                "Energy-Momentum",
-                "Relativistic energy and momentum.",
-                "$$E^2=p^2c^2+m^2c^4$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Mathematical Physics": {
-
-        category: "PHYSICS / MATHEMATICAL PHYSICS",
-
-        symbol: "∂",
-
-        description:
-            "Mathematical structures used to formulate physical theories.",
-
-        boxes: [
-
-            [
-                "Differential Equations",
-                "Equations describing physical systems.",
-                "$$\\mathcal L[u]=0$$"
-            ],
-
-            [
-                "Fourier Analysis",
-                "Represent functions using frequencies.",
-                "$$f(x)=\\sum_n c_ne^{inx}$$"
-            ],
-
-            [
-                "Operators",
-                "Linear operators used throughout physics.",
-                "$$A:V\\to V$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Field Theory": {
-
-        category: "PHYSICS / THEORETICAL PHYSICS",
-
-        symbol: "Ω",
-
-        description:
-            "Fields, actions, symmetries and fundamental interactions.",
-
-        boxes: [
-
-            [
-                "Fields",
-                "Functions assigning physical quantities to spacetime.",
-                "$$\\phi(x)$$"
-            ],
-
-            [
-                "Action",
-                "Dynamics derived from an action principle.",
-                "$$S=\\int\\mathcal L\\,d^4x$$"
-            ],
-
-            [
-                "Symmetry",
-                "Symmetries and conserved quantities.",
-                "$$\\delta S=0$$"
-            ]
-
-        ]
-
-    },
-
-
-    "Statistical Physics": {
-
-        category: "PHYSICS / STATISTICAL MECHANICS",
-
-        symbol: "Z",
-
-        description:
-            "Microscopic states, probability and macroscopic physics.",
-
-        boxes: [
-
-            [
-                "Partition Function",
-                "Central quantity of statistical mechanics.",
-                "$$Z=\\sum_i e^{-\\beta E_i}$$"
-            ],
-
-            [
-                "Entropy",
-                "Measure associated with microscopic states.",
-                "$$S=k_B\\ln\\Omega$$"
-            ],
-
-            [
-                "Ensembles",
-                "Statistical descriptions of physical systems.",
-                "$$\\langle A\\rangle$$"
-            ]
-
-        ]
-
-    }
+/* =====================================================
+CALCULUS TOPICS
+===================================================== */
+
+const calculusTopics = {
+
+```
+foundations: {
+
+    title: "FOUNDATIONS OF CALCULUS",
+
+    description:
+        "Before learning techniques, we investigate why calculus was created and what mathematical problems force its development.",
+
+    sections: [
+
+        {
+            title: "01 — THE PROBLEMS THAT CREATED CALCULUS",
+
+            text: `
+                <p>
+                Calculus did not begin as a collection of derivative
+                and integral formulas. Its origins are connected to
+                difficult geometric and physical problems.
+                </p>
+
+                <p>
+                Two fundamental questions appear repeatedly:
+                How can we determine the instantaneous rate of change
+                of something that is moving? And how can we determine
+                an accumulated quantity from infinitely many small pieces?
+                </p>
+
+                <p>
+                The first question leads toward differentiation.
+                The second leads toward integration.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — FINITE TO INFINITE",
+
+            text: `
+                <p>
+                A major conceptual transition in calculus is the passage
+                from finite processes to limiting processes.
+                </p>
+
+                <p>
+                We may approximate a complicated quantity by simpler
+                quantities and then investigate what happens when the
+                approximation becomes arbitrarily fine.
+                </p>
+
+                <div class="math-block">
+                $$
+                x_1,\;x_2,\;x_3,\ldots
+                $$
+                </div>
+
+                <p>
+                This simple idea eventually leads to limits,
+                convergence, derivatives, integrals and infinite series.
+                </p>
+            `
+        }
+
+    ]
+},
+
+
+limits: {
+
+    title: "LIMITS",
+
+    description:
+        "The limit is the central mechanism allowing calculus to reason rigorously about processes that approach a value.",
+
+    sections: [
+
+        {
+            title: "01 — THE INTUITIVE IDEA",
+
+            text: `
+                <p>
+                Suppose a function depends on a variable $x$.
+                We may ask what happens to the function when $x$
+                gets closer and closer to a particular value $a$.
+                </p>
+
+                <div class="math-block">
+                $$
+                \lim_{x\\to a} f(x)
+                $$
+                </div>
+
+                <p>
+                The important point is that the question concerns
+                the behavior near $a$, not necessarily the value
+                exactly at $a$.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — THE ε–δ IDEA",
+
+            text: `
+                <p>
+                Intuition is useful, but mathematics eventually needs
+                a precise definition.
+                </p>
+
+                <p>
+                We say that $f(x)$ approaches $L$ as $x$ approaches $a$
+                when every desired accuracy around $L$ can be achieved
+                by taking $x$ sufficiently close to $a$.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\forall \\varepsilon>0,
+                \\;\\exists\\delta>0
+                $$
+                </div>
+
+                <p>
+                The relationship between $\\varepsilon$ and $\\delta$
+                is the foundation of rigorous analysis.
+                </p>
+            `
+        },
+
+        {
+            title: "03 — WHY THIS MATTERS",
+
+            text: `
+                <p>
+                The limit concept is not merely a technical definition.
+                It allows us to define instantaneous change,
+                continuity and infinite accumulation without
+                pretending that infinitely small quantities are ordinary
+                real numbers.
+                </p>
+            `
+        }
+
+    ]
+},
+
+
+differentiation: {
+
+    title: "DIFFERENTIATION",
+
+    description:
+        "The derivative is constructed from the tangent problem, rather than simply introduced as a formula.",
+
+    sections: [
+
+        {
+            title: "01 — THE TANGENT PROBLEM",
+
+            text: `
+                <p>
+                Consider a curve $y=f(x)$ and a point
+                $P=(a,f(a))$.
+                </p>
+
+                <p>
+                A line through two points on the curve is a secant.
+                Its slope measures an average rate of change.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\frac{f(a+h)-f(a)}{h}
+                $$
+                </div>
+
+                <p>
+                But what if we want the rate of change at exactly one
+                point? We move the second point toward the first.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — FROM SECANT TO TANGENT",
+
+            text: `
+                <p>
+                Let $h$ become smaller and smaller.
+                The second point approaches the first.
+                </p>
+
+                <p>
+                The secant slope approaches a limiting value.
+                That limiting value becomes the tangent slope.
+                </p>
+
+                <div class="math-block">
+                $$
+                f'(a)
+                =
+                \\lim_{h\\to0}
+                \\frac{f(a+h)-f(a)}{h}
+                $$
+                </div>
+
+                <p>
+                This is the derivative from first principles.
+                </p>
+            `
+        },
+
+        {
+            title: "03 — DIFFERENTIABILITY",
+
+            text: `
+                <p>
+                A function is differentiable at $a$ when the
+                difference quotient above has a finite limit.
+                </p>
+
+                <p>
+                Differentiability is stronger than continuity.
+                A function can be continuous at a point without
+                being differentiable there.
+                </p>
+
+                <div class="proof-box">
+
+                <strong>Important theorem</strong>
+
+                <p>
+                If $f$ is differentiable at $a$, then $f$ is continuous
+                at $a$.
+                </p>
+
+                </div>
+            `
+        },
+
+        {
+            title: "04 — PRODUCT RULE",
+
+            text: `
+                <p>
+                Instead of memorizing the product rule, we can derive it
+                directly from the definition of the derivative.
+                </p>
+
+                <div class="math-block">
+                $$
+                (fg)'(x)=f'(x)g(x)+f(x)g'(x)
+                $$
+                </div>
+
+                <p>
+                The derivation begins by writing the difference quotient
+                of $f(x)g(x)$ and adding and subtracting a carefully
+                chosen term.
+                </p>
+            `
+        },
+
+        {
+            title: "05 — CHAIN RULE",
+
+            text: `
+                <p>
+                The chain rule describes how rates of change propagate
+                through a composition of functions.
+                </p>
+
+                <p>
+                Suppose
+                $$
+                y=f(g(x)).
+                $$
+                A small change in $x$ first changes $g(x)$,
+                which then changes $f$.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\frac{dy}{dx}
+                =
+                f'(g(x))g'(x)
+                $$
+                </div>
+
+                <p>
+                In the complete chapter, we will derive this from
+                the definition of the derivative rather than treating
+                it as a formula to memorize.
+                </p>
+            `
+        },
+
+        {
+            title: "06 — MEAN VALUE THEOREM",
+
+            text: `
+                <p>
+                The Mean Value Theorem connects local information
+                about derivatives with global information about a
+                function over an interval.
+                </p>
+
+                <div class="math-block">
+                $$
+                f'(c)
+                =
+                \\frac{f(b)-f(a)}{b-a}
+                $$
+                </div>
+
+                <p>
+                for some $c$ between $a$ and $b$, under the appropriate
+                hypotheses.
+                </p>
+            `
+        },
+
+        {
+            title: "07 — YOUR DERIVATIONS",
+
+            text: `
+                <p>
+                This section is reserved for original derivations
+                developed inside ADV RESEARCH.
+                </p>
+
+                <p>
+                Instead of merely storing known formulas, this space
+                will allow you to record your own route toward a result,
+                compare it with the standard proof and develop it further.
+                </p>
+
+                <div class="proof-box">
+                <strong>Research space</strong>
+                <p>
+                Add your own derivation from the Research Laboratory.
+                </p>
+                </div>
+            `
+        },
+
+        {
+            title: "08 — YOUR CONJECTURES",
+
+            text: `
+                <p>
+                A conjecture is a mathematical statement proposed
+                because evidence or reasoning suggests that it may be true,
+                but which has not yet been established by proof.
+                </p>
+
+                <p>
+                This section will eventually contain your own conjectures
+                and the arguments, examples and counterexamples surrounding
+                them.
+                </p>
+            `
+        }
+
+    ]
+},
+
+
+integration: {
+
+    title: "INTEGRATION",
+
+    description:
+        "Integration begins with accumulation and the problem of reconstructing a whole quantity from infinitely many contributions.",
+
+    sections: [
+
+        {
+            title: "01 — THE AREA PROBLEM",
+
+            text: `
+                <p>
+                How can we calculate the area under a curve when
+                the boundary is not a simple geometric shape?
+                </p>
+
+                <p>
+                We approximate the region using many simple rectangles.
+                As the rectangles become thinner, the approximation
+                approaches the true area.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — RIEMANN SUMS",
+
+            text: `
+                <p>
+                Partition an interval into smaller pieces and choose
+                a representative point in each piece.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\sum_{k=1}^{n}
+                f(x_k^*)\\Delta x
+                $$
+                </div>
+
+                <p>
+                The integral emerges when the mesh of the partition
+                tends toward zero.
+                </p>
+            `
+        },
+
+        {
+            title: "03 — THE FUNDAMENTAL CONNECTION",
+
+            text: `
+                <p>
+                One of the deepest results in elementary calculus is
+                that differentiation and integration are essentially
+                inverse processes under suitable conditions.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\frac{d}{dx}
+                \\int_a^x f(t)\\,dt
+                =
+                f(x)
+                $$
+                </div>
+            `
+        }
+
+    ]
+},
+
+
+sequences: {
+
+    title: "SEQUENCES",
+
+    description:
+        "Sequences provide one of the fundamental rigorous ways of studying infinite processes.",
+
+    sections: [
+
+        {
+            title: "01 — CONVERGENCE",
+
+            text: `
+                <p>
+                A sequence is an ordered collection
+                $a_1,a_2,a_3,\\ldots$.
+                </p>
+
+                <p>
+                We investigate whether the terms approach a definite
+                real number as the index becomes arbitrarily large.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\lim_{n\\to\\infty}a_n=L
+                $$
+                </div>
+            `
+        },
+
+        {
+            title: "02 — CAUCHY SEQUENCES",
+
+            text: `
+                <p>
+                Instead of asking whether the sequence approaches
+                a known number, we can ask whether its terms eventually
+                become arbitrarily close to one another.
+                </p>
+
+                <p>
+                This leads to the concept of a Cauchy sequence and,
+                ultimately, to the completeness of the real numbers.
+                </p>
+            `
+        }
+
+    ]
+},
+
+
+series: {
+
+    title: "INFINITE SERIES",
+
+    description:
+        "Infinite series study the convergence of accumulated terms and lead naturally to power series, Taylor expansions and Fourier analysis.",
+
+    sections: [
+
+        {
+            title: "01 — PARTIAL SUMS",
+
+            text: `
+                <p>
+                An infinite series is studied through its finite partial sums.
+                </p>
+
+                <div class="math-block">
+                $$
+                S_n=\\sum_{k=1}^{n}a_k
+                $$
+                </div>
+
+                <p>
+                The infinite series converges when the sequence of
+                partial sums converges.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — POWER SERIES",
+
+            text: `
+                <p>
+                Power series allow functions to be represented through
+                infinite polynomial-like expansions.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\sum_{n=0}^{\\infty}a_n(x-c)^n
+                $$
+                </div>
+
+                <p>
+                Their convergence behavior introduces the concepts
+                of radius and interval of convergence.
+                </p>
+            `
+        }
+
+    ]
+},
+
+
+multivariable: {
+
+    title: "MULTIVARIABLE CALCULUS",
+
+    description:
+        "Calculus extends naturally from one variable to functions defined on multidimensional spaces.",
+
+    sections: [
+
+        {
+            title: "01 — FUNCTIONS OF SEVERAL VARIABLES",
+
+            text: `
+                <p>
+                Instead of a function mapping one real variable to one
+                real value, we can study maps such as
+                $f:\\mathbb{R}^n\\to\\mathbb{R}$.
+                </p>
+
+                <div class="math-block">
+                $$
+                f(x,y,z)
+                $$
+                </div>
+            `
+        },
+
+        {
+            title: "02 — THE GRADIENT",
+
+            text: `
+                <p>
+                The gradient collects the partial derivatives of a scalar
+                field and points in the direction of greatest increase.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\nabla f
+                =
+                \\left(
+                \\frac{\\partial f}{\\partial x},
+                \\frac{\\partial f}{\\partial y},
+                \\frac{\\partial f}{\\partial z}
+                \\right)
+                $$
+                </div>
+            `
+        }
+
+    ]
+},
+
+
+vector: {
+
+    title: "VECTOR CALCULUS",
+
+    description:
+        "Vector calculus studies differentiation and integration of vector fields and provides the mathematical language behind many physical theories.",
+
+    sections: [
+
+        {
+            title: "01 — VECTOR FIELDS",
+
+            text: `
+                <p>
+                A vector field assigns a vector to every point in a region.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\mathbf{F}:\\mathbb{R}^3\\to\\mathbb{R}^3
+                $$
+                </div>
+
+                <p>
+                Vector fields are central in electromagnetism,
+                fluid mechanics and classical field theory.
+                </p>
+            `
+        },
+
+        {
+            title: "02 — DIVERGENCE AND CURL",
+
+            text: `
+                <p>
+                Divergence measures the local tendency of a vector field
+                to behave like a source or sink.
+                </p>
+
+                <p>
+                Curl measures local rotational behavior.
+                </p>
+
+                <div class="math-block">
+                $$
+                \\nabla\\cdot\\mathbf{F}
+                \\qquad
+                \\nabla\\times\\mathbf{F}
+                $$
+                </div>
+            `
+        }
+
+    ]
+}
+```
 
 };
 
+/* =====================================================
+OPEN CALCULUS TOPIC
+===================================================== */
 
-// ============================================
-// OPEN TOOL
-// ============================================
+function openTopic(topicId) {
 
-function openTool(name) {
+```
+const topic = calculusTopics[topicId];
 
-    const data =
-        toolData[name];
+if (!topic) {
+    console.error("Topic not found:", topicId);
+    return;
+}
 
-    if (!data) {
+let html = `
+    <div class="topic-header">
 
-        return;
+        <h1>${topic.title}</h1>
 
-    }
+        <p>
+            ${topic.description}
+        </p>
 
-    previousSection =
-        currentSection;
+    </div>
 
-    currentSection =
-        "tool";
+    <div class="topic-navigation">
+`;
 
-    document
-        .getElementById("tool-symbol")
-        .textContent =
-            data.symbol;
+topic.sections.forEach((section, index) => {
 
-    document
-        .getElementById("tool-category")
-        .textContent =
-            data.category;
+    html += `
+        <button
+            onclick="scrollToSection('topic-section-${index}')">
+            ${section.title.split("—")[0].trim()}
+        </button>
+    `;
 
-    document
-        .getElementById("tool-title")
-        .textContent =
-            name;
+});
 
-    document
-        .getElementById("tool-description")
-        .textContent =
-            data.description;
+html += `</div>`;
 
+topic.sections.forEach((section, index) => {
 
-    const content =
-        document.getElementById(
-            "tool-content"
-        );
+    html += `
+        <article
+            id="topic-section-${index}"
+            class="content-section">
 
-    content.innerHTML = "";
+            <h2>${section.title}</h2>
 
+            ${section.text}
 
-    data.boxes.forEach(function(box) {
+        </article>
+    `;
 
-        const div =
-            document.createElement("div");
+});
 
-        div.className =
-            "tool-box";
+document.getElementById("topicContent").innerHTML = html;
 
-        div.innerHTML = `
-            <h3>${box[0]}</h3>
+showPage("topicViewer");
+
+setTimeout(typesetMath, 100);
+```
+
+}
+
+function scrollToSection(id) {
+
+```
+const element = document.getElementById(id);
+
+if (element) {
+    element.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+```
+
+}
+
+/* =====================================================
+PHYSICS
+===================================================== */
+
+function showPhysicsTopic(topic) {
+
+```
+const content = {
+
+    classical: `
+        <div class="topic-header">
+            <h1>CLASSICAL MECHANICS</h1>
+            <p>
+                From Newton's laws to Lagrangian and Hamiltonian mechanics.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>THE STRUCTURE</h2>
 
             <p>
-                ${box[1]}
+                Classical mechanics can be formulated in several mathematically
+                equivalent ways. Newton's formulation emphasizes forces,
+                while Lagrangian mechanics emphasizes generalized coordinates
+                and variational principles.
             </p>
 
-            <div class="formula">
-                ${box[2]}
+            <div class="math-block">
+                $$
+                \\frac{d}{dt}
+                \\left(
+                \\frac{\\partial L}{\\partial \\dot q_i}
+                \\right)
+                -
+                \\frac{\\partial L}{\\partial q_i}
+                =0
+                $$
             </div>
-        `;
 
-        content.appendChild(div);
-
-    });
-
-
-    showScreen("tool");
-
-
-    if (window.MathJax) {
-
-        MathJax.typesetPromise([
-            content
-        ]);
-
-    }
-
-}
-
-
-// ============================================
-// RESEARCH
-// ============================================
-
-function newResearch() {
-
-    currentResearchId =
-        null;
-
-    document
-        .getElementById(
-            "research-title"
-        )
-        .value = "";
-
-    document
-        .getElementById(
-            "research-content"
-        )
-        .value = "";
-
-    document
-        .getElementById(
-            "research-field-display"
-        )
-        .textContent =
-            "General Research";
-
-    document
-        .getElementById(
-            "research-date"
-        )
-        .textContent =
-            new Date().toLocaleDateString();
-
-
-    updatePreview();
-
-    showScreen("editor");
-
-}
-
-
-function closeEditor() {
-
-    showScreen("research");
-
-    currentSection =
-        "research";
-
-    showSavedResearch();
-
-}
-
-
-function saveResearch() {
-
-    const title =
-        document
-            .getElementById(
-                "research-title"
-            )
-            .value
-            .trim();
-
-    const content =
-        document
-            .getElementById(
-                "research-content"
-            )
-            .value;
-
-
-    if (!title) {
-
-        alert(
-            "Please enter a research title."
-        );
-
-        return;
-
-    }
-
-
-    const now =
-        new Date().toISOString();
-
-
-    if (currentResearchId === null) {
-
-        const project = {
-
-            id: Date.now(),
-
-            title: title,
-
-            content: content,
-
-            author:
-                "Yassine Bechir Dallel",
-
-            date: now
-
-        };
-
-        researchProjects.push(project);
-
-        currentResearchId =
-            project.id;
-
-    } else {
-
-        const project =
-            researchProjects.find(
-                item =>
-                    item.id ===
-                    currentResearchId
-            );
-
-        if (project) {
-
-            project.title =
-                title;
-
-            project.content =
-                content;
-
-            project.date =
-                now;
-
-        }
-
-    }
-
-
-    localStorage.setItem(
-        "ADV_RESEARCH_PROJECTS",
-        JSON.stringify(
-            researchProjects
-        )
-    );
-
-
-    alert(
-        "Research saved successfully."
-    );
-
-
-    showSavedResearch();
-
-}
-
-
-// ============================================
-// SAVED RESEARCH
-// ============================================
-
-function showSavedResearch() {
-
-    const area =
-        document.getElementById(
-            "research-area"
-        );
-
-    if (!area) {
-
-        return;
-
-    }
-
-
-    area.innerHTML = "";
-
-
-    if (
-        researchProjects.length === 0
-    ) {
-
-        area.innerHTML = `
-            <div class="saved-research">
-                <h3>No research yet</h3>
-
-                <p>
-                    Your research projects
-                    will appear here.
-                </p>
+            <p>
+                Later, Hamiltonian mechanics reformulates the dynamics
+                in phase space and provides the foundation for several
+                areas of modern theoretical physics.
+            </p>
+        </div>
+    `,
+
+    quantum: `
+        <div class="topic-header">
+            <h1>QUANTUM MECHANICS</h1>
+            <p>
+                The mathematical framework describing quantum states,
+                observables and dynamics.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>FOUNDATIONS</h2>
+
+            <p>
+                Quantum mechanics replaces classical state descriptions
+                with states represented mathematically in Hilbert spaces.
+            </p>
+
+            <div class="math-block">
+                $$
+                i\\hbar
+                \\frac{\\partial}{\\partial t}
+                |\\psi(t)\\rangle
+                =
+                \\hat H|\\psi(t)\\rangle
+                $$
             </div>
-        `;
+        </div>
+    `,
 
-        return;
+    relativity: `
+        <div class="topic-header">
+            <h1>RELATIVITY</h1>
+            <p>
+                Spacetime, Lorentz transformations and relativistic dynamics.
+            </p>
+        </div>
 
-    }
+        <div class="content-section">
+            <h2>SPACETIME</h2>
 
+            <p>
+                Special relativity replaces the independent Newtonian
+                concepts of absolute space and absolute time with
+                spacetime geometry.
+            </p>
 
-    researchProjects
-        .slice()
-        .reverse()
-        .forEach(function(project) {
+            <div class="math-block">
+                $$
+                ds^2
+                =
+                -c^2dt^2+dx^2+dy^2+dz^2
+                $$
+            </div>
+        </div>
+    `
+};
 
-            const div =
-                document.createElement("div");
+document.getElementById("physicsContent").innerHTML =
+    content[topic] || "<p>Topic not found.</p>";
 
-            div.className =
-                "saved-research";
+showPage("physicsViewer");
 
-            const date =
-                new Date(
-                    project.date
-                ).toLocaleDateString();
-
-            div.innerHTML = `
-
-                <h3>
-                    ${escapeHTML(
-                        project.title
-                    )}
-                </h3>
-
-                <p>
-                    Author:
-                    ${escapeHTML(
-                        project.author
-                    )}
-                </p>
-
-                <p>
-                    Date:
-                    ${date}
-                </p>
-
-                <button
-                    onclick="openResearch(
-                        ${project.id}
-                    )">
-
-                    OPEN PROJECT
-
-                </button>
-
-                <button
-                    onclick="deleteResearch(
-                        ${project.id}
-                    )">
-
-                    DELETE
-
-                </button>
-            `;
-
-            area.appendChild(div);
-
-        });
+setTimeout(typesetMath, 100);
+```
 
 }
 
+/* =====================================================
+RESEARCH LABORATORY
+===================================================== */
 
-function openResearch(id) {
+function openResearchTool(type) {
 
-    const project =
-        researchProjects.find(
-            item =>
-                item.id === id
-        );
+```
+const editor = document.getElementById("researchEditor");
 
-    if (!project) {
+let title = "";
 
-        return;
+if (type === "derivation") {
+    title = "NEW DERIVATION";
+}
 
-    }
+if (type === "conjecture") {
+    title = "NEW CONJECTURE";
+}
 
+if (type === "note") {
+    title = "NEW NOTE";
+}
 
-    currentResearchId =
-        id;
+editor.innerHTML = `
 
+    <div class="research-editor">
 
-    document
-        .getElementById(
-            "research-title"
-        )
-        .value =
-            project.title;
+        <h2>${title}</h2>
 
+        <input
+            id="researchTitle"
+            placeholder="Title..."
+        >
 
-    document
-        .getElementById(
-            "research-content"
-        )
-        .value =
-            project.content;
+        <textarea
+            id="researchBody"
+            placeholder="Develop your idea here...
+```
 
+You can write mathematics using LaTeX.
 
-    document
-        .getElementById(
-            "research-field-display"
-        )
-        .textContent =
-            "Research";
+Example:
 
+$$
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_i}
+\right)
+-------
 
-    document
-        .getElementById(
-            "research-date"
-        )
-        .textContent =
-            new Date(
-                project.date
-            ).toLocaleDateString();
+\frac{\partial L}{\partial q_i}
+=0
+$$
+"></textarea>
 
+```
+        <button onclick="saveResearch('${type}')">
+            SAVE
+        </button>
 
-    updatePreview();
+        <div id="savedResearch"></div>
 
-    showScreen("editor");
+    </div>
+`;
+```
 
 }
 
+function saveResearch(type) {
 
-function deleteResearch(id) {
+```
+const title =
+    document.getElementById("researchTitle").value.trim();
 
-    const confirmed =
-        confirm(
-            "Delete this research?"
-        );
+const body =
+    document.getElementById("researchBody").value.trim();
 
-    if (!confirmed) {
-
-        return;
-
-    }
-
-
-    researchProjects =
-        researchProjects.filter(
-            item =>
-                item.id !== id
-        );
-
-
-    localStorage.setItem(
-        "ADV_RESEARCH_PROJECTS",
-        JSON.stringify(
-            researchProjects
-        )
-    );
-
-
-    showSavedResearch();
-
+if (!title || !body) {
+    alert("Please enter a title and content.");
+    return;
 }
 
+const research = {
+    id: Date.now(),
+    type: type,
+    title: title,
+    body: body,
+    date: new Date().toLocaleDateString()
+};
 
-// ============================================
-// PAPER TOOLS
-// ============================================
+const existing =
+    JSON.parse(
+        localStorage.getItem("advResearch")
+    ) || [];
 
-function insertHeading() {
+existing.push(research);
 
-    insertAtCursor(
-        "\n\n## Research Section\n\n"
-    );
-
-}
-
-
-function insertBold() {
-
-    insertAtCursor(
-        "**bold text**"
-    );
-
-}
-
-
-function insertEquation() {
-
-    insertAtCursor(
-        "\n\n$$\n\n\\boxed{}\n\n$$\n\n"
-    );
-
-}
-
-
-function insertImage() {
-
-    const url =
-        prompt(
-            "Enter the image URL:"
-        );
-
-    if (!url) {
-
-        return;
-
-    }
-
-
-    insertAtCursor(
-        `\n\n![Research Image](${url})\n\n`
-    );
-
-}
-
-
-function insertVideo() {
-
-    const url =
-        prompt(
-            "Enter the video URL:"
-        );
-
-    if (!url) {
-
-        return;
-
-    }
-
-
-    insertAtCursor(
-        `\n\n[Research Video](${url})\n\n`
-    );
-
-}
-
-
-function insertAtCursor(text) {
-
-    const textarea =
-        document.getElementById(
-            "research-content"
-        );
-
-    const start =
-        textarea.selectionStart;
-
-    const end =
-        textarea.selectionEnd;
-
-
-    textarea.value =
-        textarea.value.substring(
-            0,
-            start
-        ) +
-        text +
-        textarea.value.substring(
-            end
-        );
-
-
-    textarea.focus();
-
-    textarea.selectionStart =
-        start + text.length;
-
-    textarea.selectionEnd =
-        start + text.length;
-
-
-    updatePreview();
-
-}
-
-
-// ============================================
-// PREVIEW
-// ============================================
-
-document.addEventListener(
-    "input",
-    function(event) {
-
-        if (
-            event.target.id ===
-            "research-content"
-        ) {
-
-            updatePreview();
-
-        }
-
-    }
+localStorage.setItem(
+    "advResearch",
+    JSON.stringify(existing)
 );
 
+displayResearch();
 
-function updatePreview() {
+document.getElementById("researchTitle").value = "";
+document.getElementById("researchBody").value = "";
 
-    const content =
-        document
-            .getElementById(
-                "research-content"
-            )
-            .value;
-
-
-    const preview =
-        document
-            .getElementById(
-                "research-preview"
-            );
-
-
-    let html =
-        escapeHTML(content);
-
-
-    html =
-        html.replace(
-            /^## (.*)$/gm,
-            "<h2>$1</h2>"
-        );
-
-
-    html =
-        html.replace(
-            /\*\*(.*?)\*\*/g,
-            "<strong>$1</strong>"
-        );
-
-
-    html =
-        html.replace(
-            /!\[.*?\]\((.*?)\)/g,
-            '<img src="$1" alt="Research Image">'
-        );
-
-
-    html =
-        html.replace(
-            /\n/g,
-            "<br>"
-        );
-
-
-    preview.innerHTML =
-        html;
-
-
-    if (window.MathJax) {
-
-        MathJax.typesetPromise([
-            preview
-        ]);
-
-    }
+alert("Research saved locally.");
+```
 
 }
 
+function displayResearch() {
 
-// ============================================
-// SECURITY
-// ============================================
+```
+const container =
+    document.getElementById("savedResearch");
+
+if (!container) {
+    return;
+}
+
+const research =
+    JSON.parse(
+        localStorage.getItem("advResearch")
+    ) || [];
+
+if (research.length === 0) {
+    container.innerHTML =
+        "<p style='color:#666;margin-top:20px;'>No research saved yet.</p>";
+    return;
+}
+
+container.innerHTML = research
+    .slice()
+    .reverse()
+    .map(item => `
+
+        <div class="saved-item">
+
+            <h3>${escapeHTML(item.title)}</h3>
+
+            <small>
+                ${escapeHTML(item.type)}
+                •
+                ${escapeHTML(item.date)}
+            </small>
+
+            <p>
+                ${escapeHTML(item.body)}
+            </p>
+
+        </div>
+
+    `)
+    .join("");
+```
+
+}
+
+/* =====================================================
+SECURITY FOR LOCAL RESEARCH DISPLAY
+===================================================== */
 
 function escapeHTML(text) {
 
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+```
+return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+```
 
 }
 
+/* =====================================================
+INITIALIZATION
+===================================================== */
 
-// ============================================
-// START APP
-// ============================================
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+```
+showPage("home");
+```
 
-        showScreen("home");
-
-    }
-);
-// ==========================================
-// SUPABASE CONNECTION TEST
-// ==========================================
-
-async function testSupabaseConnection() {
-    const { data, error } = await supabaseClient
-        .from("subjects")
-        .select("*");
-
-    if (error) {
-        console.error("Supabase connection error:", error);
-        return;
-    }
-
-    console.log("SUPABASE CONNECTED!");
-    console.log("Subjects:", data);
-}
-
-testSupabaseConnection();
+});
