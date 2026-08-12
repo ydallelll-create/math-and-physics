@@ -1,1 +1,438 @@
-qq
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ADV RESEARCH</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="page active">
+
+    <div class="home">
+
+        <h1>ADV RESEARCH</h1>
+
+        <p class="subtitle">
+            Mathematics • Physics • Research
+        </p>
+
+        <div class="quote">
+            <p>"God does not play dice with the universe."</p>
+            <span>— Albert Einstein</span>
+        </div>
+
+        <div class="identity">
+            <h2>Yassine Bechir Dallel</h2>
+            <p>Researcher & Programmer</p>
+        </div>
+
+        <div class="main-buttons">
+
+            <button onclick="showPage('mathematics')">
+                MATHEMATICS
+            </button>
+
+            <button onclick="showPage('physics')">
+                PHYSICS
+            </button>
+
+            <button onclick="showPage('research')">
+                RESEARCH
+            </button>
+
+        </div>
+
+        <div class="featured">
+
+            <h2>FEATURED RESEARCH</h2>
+
+            <div class="research-card">
+
+                <div>
+                    <h3>The Euler–Lagrange Equation</h3>
+                    <p>Classical Mechanics</p>
+                    <small>Yassine Bechir Dallel</small>
+                </div>
+
+                <button onclick="openResearch('euler')">
+                    READ RESEARCH →
+                </button>
+
+            </div>
+
+            <div class="research-card">
+
+                <div>
+                    <h3>Complex Analysis and Residues</h3>
+                    <p>Mathematical Physics</p>
+                    <small>Yassine Bechir Dallel</small>
+                </div>
+
+                <button onclick="openResearch('residues')">
+                    READ RESEARCH →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MATHEMATICS ================= -->
+
+<section id="mathematics" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('home')">
+            ← BACK
+        </button>
+
+        <div class="title">
+
+            <span>01</span>
+
+            <h1>MATHEMATICS</h1>
+
+        </div>
+
+        <p class="description">
+            Mathematical structures, analysis, proofs and original mathematical work.
+        </p>
+
+
+        <div class="chapter-list">
+
+            <button onclick="openChapter('calculus')">
+
+                <span>01</span>
+
+                <strong>CALCULUS</strong>
+
+                <small>
+                    Limits, derivatives, integrals,
+                    sequences and series.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openChapter('analysis')">
+
+                <span>02</span>
+
+                <strong>REAL ANALYSIS</strong>
+
+                <small>
+                    Rigorous limits, continuity,
+                    convergence and metric spaces.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openChapter('complex')">
+
+                <span>03</span>
+
+                <strong>COMPLEX ANALYSIS</strong>
+
+                <small>
+                    Holomorphic functions, contours,
+                    Laurent series and residues.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openChapter('topology')">
+
+                <span>04</span>
+
+                <strong>TOPOLOGY</strong>
+
+                <small>
+                    Open sets, closed sets,
+                    compactness and connectedness.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openChapter('linear')">
+
+                <span>05</span>
+
+                <strong>LINEAR ALGEBRA</strong>
+
+                <small>
+                    Vector spaces, linear maps,
+                    eigenvalues and operators.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openChapter('vector')">
+
+                <span>06</span>
+
+                <strong>VECTOR CALCULUS</strong>
+
+                <small>
+                    Gradient, divergence, curl,
+                    flux and integral theorems.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CHAPTER ================= -->
+
+<section id="chapter" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('mathematics')">
+            ← MATHEMATICS
+        </button>
+
+        <div id="chapterContent"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TOPIC ================= -->
+
+<section id="topic" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="backToChapter()">
+            ← BACK
+        </button>
+
+        <div id="topicContent"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PHYSICS ================= -->
+
+<section id="physics" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('home')">
+            ← BACK
+        </button>
+
+        <div class="title">
+
+            <span>02</span>
+
+            <h1>PHYSICS</h1>
+
+        </div>
+
+        <p class="description">
+            Theoretical physics and mathematical descriptions of nature.
+        </p>
+
+
+        <div class="chapter-list">
+
+            <button onclick="openPhysics('classical')">
+
+                <span>01</span>
+
+                <strong>CLASSICAL MECHANICS</strong>
+
+                <small>
+                    Newtonian, Lagrangian and Hamiltonian mechanics.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openPhysics('quantum')">
+
+                <span>02</span>
+
+                <strong>QUANTUM MECHANICS</strong>
+
+                <small>
+                    Hilbert spaces, operators,
+                    states and quantum dynamics.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+
+            <button onclick="openPhysics('relativity')">
+
+                <span>03</span>
+
+                <strong>RELATIVITY</strong>
+
+                <small>
+                    Spacetime, Lorentz transformations
+                    and relativistic dynamics.
+                </small>
+
+                <b>OPEN →</b>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PHYSICS CHAPTER ================= -->
+
+<section id="physicsChapter" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('physics')">
+            ← PHYSICS
+        </button>
+
+        <div id="physicsContent"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RESEARCH ================= -->
+
+<section id="research" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('home')">
+            ← BACK
+        </button>
+
+        <div class="title">
+
+            <span>03</span>
+
+            <h1>RESEARCH</h1>
+
+        </div>
+
+        <p class="description">
+            Your personal laboratory for derivations,
+            conjectures and research notes.
+        </p>
+
+
+        <div class="research-tools">
+
+            <button onclick="newResearch('Derivation')">
+                <strong>NEW DERIVATION</strong>
+                <small>
+                    Develop a mathematical or physical derivation.
+                </small>
+            </button>
+
+            <button onclick="newResearch('Conjecture')">
+                <strong>NEW CONJECTURE</strong>
+                <small>
+                    Write and develop an original conjecture.
+                </small>
+            </button>
+
+            <button onclick="newResearch('Research Note')">
+                <strong>NEW RESEARCH NOTE</strong>
+                <small>
+                    Record an idea or observation.
+                </small>
+            </button>
+
+        </div>
+
+        <div id="editor"></div>
+
+        <div id="savedResearch"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RESEARCH ARTICLE ================= -->
+
+<section id="researchArticle" class="page">
+
+    <div class="container">
+
+        <button class="back" onclick="showPage('home')">
+            ← HOME
+        </button>
+
+        <div id="articleContent"></div>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
