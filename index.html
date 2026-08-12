@@ -1,704 +1,307 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>ADV RESEARCH — V3</title>
+    <title>ADV RESEARCH</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        startup: {
-            typeset: false
-        }
-    };
-</script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
 
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-```
-
+    <script async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
 
-<header class="topbar">
-    <div class="brand">
-        <span class="brand-main">ADV</span>
-        <span class="brand-sub">RESEARCH</span>
-    </div>
+<header>
+    <div class="logo">ADV RESEARCH</div>
 
-```
-<nav class="main-nav">
-    <button onclick="showPage('home')">HOME</button>
-    <button onclick="showPage('mathematics')">MATHEMATICS</button>
-    <button onclick="showPage('physics')">PHYSICS</button>
-    <button onclick="showPage('research')">RESEARCH</button>
-</nav>
-```
-
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('mathematics')">Mathematics</button>
+        <button onclick="showPage('physics')">Physics</button>
+        <button onclick="showPage('research')">Research</button>
+    </nav>
 </header>
+
 
 <main>
 
-<!-- =====================================================
-     HOME
-===================================================== -->
+<!-- HOME -->
 
 <section id="home" class="page active">
 
-```
-<div class="home-screen">
+    <div class="hero">
 
-    <div class="home-title">
-        <div class="big-adv">ADV</div>
-        <div class="big-research">RESEARCH</div>
+        <h1>ADV RESEARCH</h1>
 
-        <div class="home-line"></div>
-
-        <p>
-            MATHEMATICS • PHYSICS • THEORETICAL RESEARCH
+        <p class="subtitle">
+            Mathematics • Physics • Scientific Research
         </p>
-    </div>
 
-    <div class="quote-box">
-        <p>
+        <div class="quote">
             "God does not play dice with the universe."
-        </p>
-        <span>— Albert Einstein</span>
-    </div>
-
-    <div class="identity">
-        <div class="identity-name">Yassine Bechir Dallel</div>
-        <div class="identity-role">
-            RESEARCHER & PROGRAMMER
+            <span>— Albert Einstein</span>
         </div>
-    </div>
 
-    <div class="home-buttons">
-
-        <button class="main-square-button"
-                onclick="showPage('mathematics')">
-
-            <span class="button-symbol">∑</span>
-
-            <span class="button-title">
-                MATHEMATICS
-            </span>
-
-            <span class="button-description">
-                Analysis, calculus, algebra,
-                topology and mathematical structures.
-            </span>
-
-        </button>
-
-
-        <button class="main-square-button"
-                onclick="showPage('physics')">
-
-            <span class="button-symbol">⚛</span>
-
-            <span class="button-title">
-                PHYSICS
-            </span>
-
-            <span class="button-description">
-                Mechanics, quantum theory,
-                relativity and mathematical physics.
-            </span>
-
-        </button>
-
-
-        <button class="main-square-button"
-                onclick="showPage('research')">
-
-            <span class="button-symbol">⌬</span>
-
-            <span class="button-title">
-                RESEARCH
-            </span>
-
-            <span class="button-description">
-                Derivations, conjectures,
-                notes and original ideas.
-            </span>
-
-        </button>
+        <div class="researcher">
+            <h2>Yassine Bechir Dallel</h2>
+            <p>Researcher & Programmer</p>
+        </div>
 
     </div>
 
-</div>
-```
+
+    <h2 class="section-title">Research Fields</h2>
+
+    <div class="cards">
+
+        <div class="card" onclick="showPage('mathematics')">
+            <div class="icon">∑</div>
+            <h2>Mathematics</h2>
+            <p>
+                Calculus, analysis, algebra, geometry,
+                complex analysis and mathematical physics.
+            </p>
+        </div>
+
+        <div class="card" onclick="showPage('physics')">
+            <div class="icon">⚛</div>
+            <h2>Physics</h2>
+            <p>
+                Classical mechanics, quantum mechanics,
+                relativity and theoretical physics.
+            </p>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">Featured Research</h2>
+
+    <div id="featuredResearch"></div>
 
 </section>
 
-<!-- =====================================================
-     MATHEMATICS
-===================================================== -->
+
+
+<!-- MATHEMATICS -->
 
 <section id="mathematics" class="page">
 
-```
-<button class="back-button" onclick="showPage('home')">
-    ← BACK
-</button>
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
 
-<div class="section-header">
+    <h1>Mathematics</h1>
 
-    <span class="section-number">01</span>
+    <p class="intro">
+        Mathematical research and mathematical tools.
+    </p>
 
-    <div>
-        <h1>MATHEMATICS</h1>
+    <div class="topic-grid">
 
-        <p>
-            Mathematical structures, analysis,
-            abstraction and rigorous reasoning.
-        </p>
+        <div class="topic">
+            <h2>Calculus</h2>
+            <p>Limits, derivatives, integrals and series.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Real Analysis</h2>
+            <p>Sequences, functions, continuity and convergence.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Complex Analysis</h2>
+            <p>Complex functions, residues and contour integration.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Linear Algebra</h2>
+            <p>Vector spaces, matrices, eigenvalues and operators.</p>
+        </div>
+
     </div>
 
-</div>
-
-
-<div class="chapter-grid">
-
-    <button class="chapter-card"
-            onclick="openChapter('calculus')">
-
-        <span class="chapter-number">01</span>
-
-        <h2>CALCULUS</h2>
-
-        <p>
-            Change, accumulation, limits,
-            differentiation, integration and series.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="openChapter('real-analysis')">
-
-        <span class="chapter-number">02</span>
-
-        <h2>REAL ANALYSIS</h2>
-
-        <p>
-            Rigorous study of limits, continuity,
-            convergence, metric spaces and functions.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="openChapter('complex-analysis')">
-
-        <span class="chapter-number">03</span>
-
-        <h2>COMPLEX ANALYSIS</h2>
-
-        <p>
-            Holomorphic functions, contour integration,
-            Laurent series and residues.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="openChapter('topology')">
-
-        <span class="chapter-number">04</span>
-
-        <h2>TOPOLOGY</h2>
-
-        <p>
-            Open sets, closed sets, continuity,
-            compactness and connectedness.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="openChapter('linear-algebra')">
-
-        <span class="chapter-number">05</span>
-
-        <h2>LINEAR ALGEBRA</h2>
-
-        <p>
-            Vector spaces, linear maps,
-            matrices, eigenvalues and operators.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="openChapter('vector-calculus')">
-
-        <span class="chapter-number">06</span>
-
-        <h2>VECTOR CALCULUS</h2>
-
-        <p>
-            Vector fields, line integrals,
-            flux, divergence, curl and theorems.
-        </p>
-
-        <span class="open-label">
-            EXPLORE →
-        </span>
-
-    </button>
-
-</div>
-```
-
 </section>
 
-<!-- =====================================================
-     CALCULUS
-===================================================== -->
-
-<section id="calculus" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
 
 
-<div class="chapter-heading">
-
-    <span class="chapter-big-number">01</span>
-
-    <div>
-        <h1>CALCULUS</h1>
-
-        <p>
-            The mathematical study of change,
-            accumulation and continuous processes.
-        </p>
-    </div>
-
-</div>
-
-
-<div class="chapter-introduction">
-
-    <h2>THE IDEA</h2>
-
-    <p>
-        Calculus is not merely a collection of formulas.
-        It is a mathematical framework for understanding
-        quantities that change and quantities that accumulate.
-    </p>
-
-    <p>
-        The central ideas of calculus emerge from a small
-        number of deep problems: the tangent problem,
-        the area problem and the study of infinite processes.
-    </p>
-
-</div>
-
-
-<div class="deep-grid">
-
-    <button onclick="openTopic('foundations')">
-        <span>01</span>
-        <strong>FOUNDATIONS</strong>
-        <small>
-            Why calculus exists and the ideas
-            that lead to it.
-        </small>
-    </button>
-
-    <button onclick="openTopic('limits')">
-        <span>02</span>
-        <strong>LIMITS</strong>
-        <small>
-            From intuitive approach to
-            rigorous ε–δ reasoning.
-        </small>
-    </button>
-
-    <button onclick="openTopic('differentiation')">
-        <span>03</span>
-        <strong>DIFFERENTIATION</strong>
-        <small>
-            The tangent problem and the
-            construction of the derivative.
-        </small>
-    </button>
-
-    <button onclick="openTopic('integration')">
-        <span>04</span>
-        <strong>INTEGRATION</strong>
-        <small>
-            Area, accumulation and the
-            Fundamental Theorem.
-        </small>
-    </button>
-
-    <button onclick="openTopic('sequences')">
-        <span>05</span>
-        <strong>SEQUENCES</strong>
-        <small>
-            Convergence, Cauchy sequences
-            and completeness.
-        </small>
-    </button>
-
-    <button onclick="openTopic('series')">
-        <span>06</span>
-        <strong>SERIES</strong>
-        <small>
-            Infinite sums, convergence tests
-            and power series.
-        </small>
-    </button>
-
-    <button onclick="openTopic('multivariable')">
-        <span>07</span>
-        <strong>MULTIVARIABLE CALCULUS</strong>
-        <small>
-            Differentiation and integration
-            in several dimensions.
-        </small>
-    </button>
-
-    <button onclick="openTopic('vector')">
-        <span>08</span>
-        <strong>VECTOR CALCULUS</strong>
-        <small>
-            Fields, circulation, flux,
-            divergence and curl.
-        </small>
-    </button>
-
-</div>
-```
-
-</section>
-
-<!-- =====================================================
-     TOPIC VIEWER
-===================================================== -->
-
-<section id="topicViewer" class="page">
-
-```
-<button class="back-button"
-        onclick="showPage('calculus')">
-    ← CALCULUS
-</button>
-
-<div id="topicContent"></div>
-```
-
-</section>
-
-<!-- =====================================================
-     PLACEHOLDER MATHEMATICS CHAPTERS
-===================================================== -->
-
-<section id="real-analysis" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
-
-<div class="simple-chapter">
-    <span>02</span>
-    <h1>REAL ANALYSIS</h1>
-    <p>
-        This chapter will contain the rigorous foundations
-        of analysis: metric spaces, convergence, continuity,
-        compactness, differentiation and integration.
-    </p>
-</div>
-```
-
-</section>
-
-<section id="complex-analysis" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
-
-<div class="simple-chapter">
-    <span>03</span>
-    <h1>COMPLEX ANALYSIS</h1>
-    <p>
-        Holomorphic functions, complex integration,
-        Cauchy's theorems, Laurent expansions and residues.
-    </p>
-</div>
-```
-
-</section>
-
-<section id="topology" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
-
-<div class="simple-chapter">
-    <span>04</span>
-    <h1>TOPOLOGY</h1>
-    <p>
-        Open and closed sets, neighborhoods, continuity,
-        compactness, connectedness and topological spaces.
-    </p>
-</div>
-```
-
-</section>
-
-<section id="linear-algebra" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
-
-<div class="simple-chapter">
-    <span>05</span>
-    <h1>LINEAR ALGEBRA</h1>
-    <p>
-        Vector spaces, linear transformations, matrices,
-        eigenvalues, eigenvectors and operators.
-    </p>
-</div>
-```
-
-</section>
-
-<section id="vector-calculus" class="page chapter-page">
-
-```
-<button class="back-button"
-        onclick="showPage('mathematics')">
-    ← MATHEMATICS
-</button>
-
-<div class="simple-chapter">
-    <span>06</span>
-    <h1>VECTOR CALCULUS</h1>
-    <p>
-        Vector fields, line and surface integrals,
-        divergence, curl and the fundamental theorems.
-    </p>
-</div>
-```
-
-</section>
-
-<!-- =====================================================
-     PHYSICS
-===================================================== -->
+<!-- PHYSICS -->
 
 <section id="physics" class="page">
 
-```
-<button class="back-button"
-        onclick="showPage('home')">
-    ← BACK
-</button>
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
 
-<div class="section-header">
+    <h1>Physics</h1>
 
-    <span class="section-number">02</span>
+    <p class="intro">
+        Theoretical and mathematical physics.
+    </p>
 
-    <div>
-        <h1>PHYSICS</h1>
+    <div class="topic-grid">
 
-        <p>
-            Theoretical physics and the mathematical
-            structures describing nature.
-        </p>
+        <div class="topic">
+            <h2>Classical Mechanics</h2>
+            <p>
+                Newtonian mechanics, Lagrangian mechanics
+                and Hamiltonian mechanics.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Quantum Mechanics</h2>
+            <p>
+                Schrödinger equation, operators,
+                Hilbert spaces and quantum states.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Relativity</h2>
+            <p>
+                Special relativity, spacetime and
+                relativistic dynamics.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Mathematical Physics</h2>
+            <p>
+                Differential equations, Fourier analysis
+                and mathematical structures used in physics.
+            </p>
+        </div>
+
     </div>
 
-</div>
-
-
-<div class="chapter-grid">
-
-    <button class="chapter-card"
-            onclick="showPhysicsTopic('classical')">
-        <span class="chapter-number">01</span>
-        <h2>CLASSICAL MECHANICS</h2>
-        <p>
-            Newtonian, Lagrangian and Hamiltonian mechanics.
-        </p>
-        <span class="open-label">EXPLORE →</span>
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="showPhysicsTopic('quantum')">
-        <span class="chapter-number">02</span>
-        <h2>QUANTUM MECHANICS</h2>
-        <p>
-            States, operators, Hilbert spaces
-            and quantum dynamics.
-        </p>
-        <span class="open-label">EXPLORE →</span>
-    </button>
-
-
-    <button class="chapter-card"
-            onclick="showPhysicsTopic('relativity')">
-        <span class="chapter-number">03</span>
-        <h2>RELATIVITY</h2>
-        <p>
-            Spacetime, Lorentz transformations
-            and relativistic dynamics.
-        </p>
-        <span class="open-label">EXPLORE →</span>
-    </button>
-
-</div>
-```
-
 </section>
 
-<!-- =====================================================
-     PHYSICS TOPIC
-===================================================== -->
 
-<section id="physicsViewer" class="page">
 
-```
-<button class="back-button"
-        onclick="showPage('physics')">
-    ← PHYSICS
-</button>
-
-<div id="physicsContent"></div>
-```
-
-</section>
-
-<!-- =====================================================
-     RESEARCH
-===================================================== -->
+<!-- RESEARCH -->
 
 <section id="research" class="page">
 
-```
-<button class="back-button"
-        onclick="showPage('home')">
-    ← BACK
-</button>
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
 
-<div class="section-header">
+    <h1>Research Laboratory</h1>
 
-    <span class="section-number">03</span>
+    <p class="intro">
+        Write, save and manage your research.
+    </p>
 
-    <div>
-        <h1>RESEARCH LABORATORY</h1>
 
-        <p>
-            Your personal space for derivations,
-            conjectures and original ideas.
-        </p>
+    <div class="editor">
+
+        <label>Research title</label>
+
+        <input
+            id="researchTitle"
+            type="text"
+            placeholder="Enter research title..."
+        >
+
+
+        <label>Research field</label>
+
+        <select id="researchField">
+
+            <option>Mathematics</option>
+            <option>Physics</option>
+            <option>Classical Mechanics</option>
+            <option>Quantum Mechanics</option>
+            <option>Complex Analysis</option>
+            <option>Other</option>
+
+        </select>
+
+
+        <label>Research content</label>
+
+        <textarea
+            id="researchContent"
+            placeholder="Write your research here...
+
+You can use mathematical notation.
+
+Example:
+
+$$
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_i}
+\right)
+-
+\frac{\partial L}{\partial q_i}
+=0
+$$
+
+For inline mathematics use $E=mc^2$."
+        ></textarea>
+
+
+        <div class="editor-buttons">
+
+            <button class="save-button" onclick="saveResearch()">
+                💾 Save Research
+            </button>
+
+            <button onclick="clearEditor()">
+                Clear
+            </button>
+
+            <button onclick="showPage('home')">
+                ← Back
+            </button>
+
+        </div>
+
     </div>
 
-</div>
 
+    <h2 class="section-title">Saved Research</h2>
 
-<div class="research-tools">
-
-    <button onclick="openResearchTool('derivation')">
-        <span>∫</span>
-        <strong>NEW DERIVATION</strong>
-        <small>
-            Develop a mathematical or physical derivation.
-        </small>
-    </button>
-
-    <button onclick="openResearchTool('conjecture')">
-        <span>?</span>
-        <strong>NEW CONJECTURE</strong>
-        <small>
-            Write and develop an original conjecture.
-        </small>
-    </button>
-
-    <button onclick="openResearchTool('note')">
-        <span>✎</span>
-        <strong>NEW NOTE</strong>
-        <small>
-            Record an idea, observation or question.
-        </small>
-    </button>
-
-</div>
-
-<div id="researchEditor"></div>
-```
+    <div id="researchList"></div>
 
 </section>
 
+
 </main>
+
 
 <footer>
 
-```
-<div>ADV RESEARCH</div>
+    <p>
+        ADV RESEARCH
+    </p>
 
-<div>
-    Yassine Bechir Dallel — Researcher & Programmer
-</div>
-```
+    <p>
+        Researcher & Programmer:
+        Yassine Bechir Dallel
+    </p>
 
 </footer>
+
 
 <script src="script.js"></script>
 
 </body>
 </html>
+```
