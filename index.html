@@ -2,41 +2,60 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>ADV RESEARCH — V3</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <script>
+
         window.MathJax = {
+
             tex: {
+
                 inlineMath: [
                     ['$', '$'],
                     ['\\(', '\\)']
                 ],
+
                 displayMath: [
                     ['$$', '$$'],
                     ['\\[', '\\]']
                 ]
+
             }
+
         };
+
     </script>
 
-    <script async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+
 </head>
 
 
 <body>
+
 
 <header class="topbar">
 
     <div class="brand">
         ADV RESEARCH
     </div>
+
 
     <nav>
 
@@ -65,25 +84,36 @@
 <main>
 
 
-<!-- ===================================================== -->
-<!-- HOME -->
-<!-- ===================================================== -->
+<!-- ================= HOME ================= -->
 
-<section id="home" class="page active">
+<section
+    id="home"
+    class="page active"
+>
+
 
     <div class="hero">
 
+
         <div class="hero-kicker">
+
             MATHEMATICS • PHYSICS • RESEARCH
+
         </div>
 
+
         <h1>
+
             ADV RESEARCH
+
         </h1>
 
+
         <p class="hero-subtitle">
+
             A personal library for deep mathematical
             and theoretical physics study.
+
         </p>
 
 
@@ -110,11 +140,13 @@
 
         </div>
 
+
     </div>
 
 
 
     <section class="home-section">
+
 
         <h2>
             Research Fields
@@ -191,6 +223,7 @@
 
         </div>
 
+
     </section>
 
 
@@ -208,15 +241,18 @@
 
     </section>
 
+
 </section>
 
 
 
-<!-- ===================================================== -->
-<!-- MATHEMATICS -->
-<!-- ===================================================== -->
+<!-- ================= MATHEMATICS ================= -->
 
-<section id="mathematics" class="page">
+<section
+    id="mathematics"
+    class="page"
+>
+
 
     <button
         class="back-button"
@@ -232,9 +268,11 @@
             FIELD I
         </span>
 
+
         <h1>
             Mathematics
         </h1>
+
 
         <p>
             Courses organized from foundations
@@ -249,15 +287,18 @@
         class="course-grid"
     ></div>
 
+
 </section>
 
 
 
-<!-- ===================================================== -->
-<!-- PHYSICS -->
-<!-- ===================================================== -->
+<!-- ================= PHYSICS ================= -->
 
-<section id="physics" class="page">
+<section
+    id="physics"
+    class="page"
+>
+
 
     <button
         class="back-button"
@@ -273,9 +314,11 @@
             FIELD II
         </span>
 
+
         <h1>
             Physics
         </h1>
+
 
         <p>
             Theoretical physics courses
@@ -290,15 +333,18 @@
         class="course-grid"
     ></div>
 
+
 </section>
 
 
 
-<!-- ===================================================== -->
-<!-- COURSE PAGE -->
-<!-- ===================================================== -->
+<!-- ================= COURSE ================= -->
 
-<section id="course" class="page">
+<section
+    id="course"
+    class="page"
+>
+
 
     <button
         class="back-button"
@@ -310,15 +356,18 @@
 
     <div id="courseView"></div>
 
+
 </section>
 
 
 
-<!-- ===================================================== -->
-<!-- RESEARCH -->
-<!-- ===================================================== -->
+<!-- ================= RESEARCH ================= -->
 
-<section id="research" class="page">
+<section
+    id="research"
+    class="page"
+>
+
 
     <button
         class="back-button"
@@ -334,9 +383,11 @@
             LABORATORY
         </span>
 
+
         <h1>
             Research Laboratory
         </h1>
+
 
         <p>
             Write your own derivations,
@@ -357,6 +408,7 @@
 
         <input
             id="researchTitle"
+            type="text"
             placeholder="e.g. A conjecture about ..."
         >
 
@@ -451,15 +503,13 @@
 
         <textarea
             id="researchContent"
-            placeholder="Write your work here...
+            placeholder="Write your research here...
 
-Markdown-style headings are supported.
-
-MathJax works with:
+You can use:
 
 $E=mc^2$
 
-or
+or:
 
 $$
 \frac{d}{dt}
@@ -474,6 +524,7 @@ $$"
 
         <div class="editor-buttons">
 
+
             <button
                 class="primary-button"
                 onclick="saveResearch()"
@@ -482,13 +533,13 @@ $$"
             </button>
 
 
-            <button
-                onclick="clearEditor()"
-            >
+            <button onclick="clearEditor()">
                 Clear
             </button>
 
+
         </div>
+
 
     </div>
 
@@ -504,6 +555,7 @@ $$"
         class="research-feed"
     ></div>
 
+
 </section>
 
 
@@ -517,6 +569,7 @@ $$"
         ADV RESEARCH
     </strong>
 
+
     <span>
         Researcher &amp; Programmer:
         Yassine Bechir Dallel
@@ -526,9 +579,7 @@ $$"
 
 
 
-<!-- ===================================================== -->
-<!-- COURSE FILES -->
-<!-- ===================================================== -->
+<!-- ================= COURSE FILES ================= -->
 
 <script src="courses/mathematics/calculus.js"></script>
 
@@ -541,7 +592,6 @@ $$"
 <script src="courses/mathematics/topology.js"></script>
 
 
-
 <script src="courses/physics/classical-mechanics.js"></script>
 
 <script src="courses/physics/quantum-mechanics.js"></script>
@@ -552,7 +602,7 @@ $$"
 
 
 
-<!-- MAIN JAVASCRIPT -->
+<!-- ================= MAIN JS ================= -->
 
 <script src="script.js"></script>
 
