@@ -2,1038 +2,199 @@
     box-sizing: border-box;
 }
 
-
-:root {
-
-    --bg: #050505;
-
-    --panel: #0d0d0d;
-
-    --panel2: #111111;
-
-    --line: #292929;
-
-    --text: #f3f3f3;
-
-    --muted: #999999;
-
-}
-
-
-html,
 body {
-
     margin: 0;
+    background: #050505;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    min-height: 100%;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family:
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
+.app {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 60px 0;
 }
 
 
-body {
-
-    overflow-x: hidden;
-
-}
-
-
-button,
-input,
-textarea,
-select {
-
-    font: inherit;
-
-}
-
-
-button {
-
-    color: var(--text);
-
-}
-
-
-/* ================= HEADER ================= */
-
-
-.topbar {
-
-    height: 72px;
-
-    border-bottom:
-        1px solid var(--line);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 5%;
-
-    position: sticky;
-
-    top: 0;
-
-    background:
-        rgba(5, 5, 5, .96);
-
-    backdrop-filter:
-        blur(12px);
-
-    z-index: 20;
-
-}
-
-
-.brand {
-
-    font-weight: 900;
-
-    letter-spacing: .14em;
-
-}
-
-
-nav {
-
-    display: flex;
-
-    gap: 8px;
-
-}
-
-
-nav button {
-
-    background: transparent;
-
-    border:
-        1px solid var(--line);
-
-    padding:
-        10px 16px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: .2s;
-
-}
-
-
-nav button:hover {
-
-    background: #171717;
-
-}
-
-
-/* ================= MAIN ================= */
-
-
-main {
-
-    width:
-        min(1180px, 92%);
-
-    margin:
-        auto;
-
-}
-
-
-.page {
-
-    display: none;
-
-    padding:
-        42px 0 80px;
-
-    animation:
-        fade .25s ease;
-
-}
-
-
-.page.active {
-
-    display: block;
-
-}
-
-
-@keyframes fade {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(7px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-
-
-/* ================= HERO ================= */
-
+/* HERO */
 
 .hero {
-
     text-align: center;
-
-    min-height: 510px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-bottom:
-        1px solid var(--line);
-
+    padding: 70px 30px;
+    border: 1px solid #444;
 }
-
-
-.hero-kicker,
-.eyebrow {
-
-    font-size: .75rem;
-
-    letter-spacing: .2em;
-
-    color: #aaa;
-
-}
-
 
 .hero h1 {
-
-    font-size:
-        clamp(3rem, 8vw, 6.5rem);
-
-    margin:
-        18px 0 10px;
-
-    letter-spacing:
-        .04em;
-
+    margin: 0;
+    font-size: 52px;
+    letter-spacing: 8px;
 }
 
-
-.hero-subtitle {
-
+.subtitle {
+    margin-top: 20px;
     color: #aaa;
-
-    font-size:
-        1.05rem;
-
+    font-size: 18px;
 }
-
 
 .quote {
-
-    margin:
-        38px 0 28px;
-
-    max-width:
-        650px;
-
-    font-size:
-        1.15rem;
-
-    font-style:
-        italic;
-
-    color: #ddd;
-
+    margin: 45px 0;
+    font-style: italic;
+    color: #ccc;
 }
-
 
 .quote span {
-
     display: block;
-
     margin-top: 10px;
-
-    font-size: .85rem;
-
-    color: #888;
-
+    color: #777;
 }
 
 
-.researcher h2 {
+/* MAIN BUTTONS */
 
-    margin-bottom: 4px;
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
+button {
+    background: transparent;
+    color: #f5f5f5;
+    border: 1px solid #777;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: #f5f5f5;
+    color: #050505;
 }
 
 
-.researcher p {
+/* FEATURED RESEARCH */
 
-    color: #888;
+.featured {
+    margin-top: 70px;
+}
 
+.featured > h2 {
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.research-card {
+    border: 1px solid #444;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.research-card h3 {
     margin-top: 0;
+    font-size: 22px;
+}
 
+.research-card p {
+    color: #aaa;
+}
+
+.research-card span {
+    display: block;
+    color: #777;
+    margin-bottom: 25px;
 }
 
 
-/* ================= HOME ================= */
+/* PAGES */
 
+.page {
+    display: none;
+    min-height: 600px;
+}
 
-.home-section {
+.page.active {
+    display: block;
+}
 
-    padding:
-        42px 0;
+.page h2 {
+    text-align: center;
+    font-size: 34px;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+}
 
+.back {
+    margin-bottom: 40px;
 }
 
 
-.home-section h2,
-.section-title {
+/* CHAPTER GRID */
 
-    font-size:
-        1.45rem;
-
-    margin-bottom:
-        20px;
-
-}
-
-
-.main-cards {
-
-    display:
-        grid;
-
+.chapter-grid {
+    display: grid;
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-    gap:
-        18px;
+.chapter {
+    min-height: 160px;
+    padding: 30px;
+    text-align: left;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.chapter span {
+    color: #888;
+    font-size: 13px;
 }
 
 
-.field-card {
+/* RESEARCH */
 
-    min-height:
-        220px;
+.research-box {
+    max-width: 750px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    background:
-        var(--panel);
+input,
+textarea {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid #444;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+}
 
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        18px;
-
-    padding:
-        28px;
-
-    text-align:
-        left;
-
-    cursor:
-        pointer;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-    transition:
-        .2s;
-
+textarea {
+    min-height: 350px;
+    resize: vertical;
 }
 
 
-.field-card:hover {
+/* RESPONSIVE */
 
-    transform:
-        translateY(-5px);
+@media (max-width: 600px) {
 
-    border-color:
-        #555;
-
-    background:
-        #121212;
-
-}
-
-
-.field-symbol {
-
-    font-size:
-        3rem;
-
-    margin-bottom:
-        22px;
-
-}
-
-
-.field-card strong {
-
-    font-size:
-        1.15rem;
-
-    letter-spacing:
-        .1em;
-
-}
-
-
-.field-card small {
-
-    color:
-        #999;
-
-    margin-top:
-        10px;
-
-    line-height:
-        1.5;
-
-}
-
-
-/* ================= PAGE HEADINGS ================= */
-
-
-.page-heading {
-
-    margin:
-        35px 0;
-
-}
-
-
-.page-heading h1 {
-
-    font-size:
-        3.2rem;
-
-    margin:
-        8px 0;
-
-}
-
-
-.page-heading p {
-
-    color:
-        #999;
-
-}
-
-
-/* ================= COURSES ================= */
-
-
-.course-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        18px;
-
-}
-
-
-.course-card {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        16px;
-
-    padding:
-        24px;
-
-    cursor:
-        pointer;
-
-    transition:
-        .2s;
-
-}
-
-
-.course-card:hover {
-
-    border-color:
-        #666;
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-.course-card .number {
-
-    color:
-        #777;
-
-    font-size:
-        .8rem;
-
-    letter-spacing:
-        .15em;
-
-}
-
-
-.course-card h2 {
-
-    margin:
-        10px 0;
-
-}
-
-
-.course-card p {
-
-    color:
-        #999;
-
-    line-height:
-        1.6;
-
-}
-
-
-.course-card .count {
-
-    color:
-        #bbb;
-
-    font-size:
-        .85rem;
-
-}
-
-
-/* ================= COURSE PAGE ================= */
-
-
-.course-header {
-
-    border-bottom:
-        1px solid var(--line);
-
-    padding-bottom:
-        30px;
-
-    margin-bottom:
-        25px;
-
-}
-
-
-.course-header h1 {
-
-    font-size:
-        3rem;
-
-    margin:
-        8px 0;
-
-}
-
-
-.course-header p {
-
-    color:
-        #999;
-
-}
-
-
-.lesson-layout {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        270px 1fr;
-
-    gap:
-        25px;
-
-}
-
-
-.lesson-nav {
-
-    position:
-        sticky;
-
-    top:
-        95px;
-
-    align-self:
-        start;
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        14px;
-
-    padding:
-        10px;
-
-}
-
-
-.lesson-nav button {
-
-    width:
-        100%;
-
-    text-align:
-        left;
-
-    background:
-        transparent;
-
-    border:
-        0;
-
-    border-radius:
-        8px;
-
-    padding:
-        11px;
-
-    color:
-        #aaa;
-
-    cursor:
-        pointer;
-
-}
-
-
-.lesson-nav button:hover,
-.lesson-nav button.active {
-
-    background:
-        #191919;
-
-    color:
-        #fff;
-
-}
-
-
-.lesson-content {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        16px;
-
-    padding:
-        32px;
-
-    line-height:
-        1.75;
-
-}
-
-
-.lesson-content h2 {
-
-    font-size:
-        1.9rem;
-
-}
-
-
-.lesson-content h3 {
-
-    font-size:
-        1.3rem;
-
-    margin-top:
-        30px;
-
-}
-
-
-.lesson-content p,
-.lesson-content li {
-
-    color:
-        #ccc;
-
-}
-
-
-.math-block {
-
-    background:
-        #080808;
-
-    border:
-        1px solid #242424;
-
-    border-radius:
-        12px;
-
-    padding:
-        18px;
-
-    margin:
-        20px 0;
-
-    overflow:
-        auto;
-
-}
-
-
-/* ================= RESEARCH ================= */
-
-
-.research-editor {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        16px;
-
-    padding:
-        25px;
-
-    display:
-        grid;
-
-    gap:
-        10px;
-
-}
-
-
-.research-editor label {
-
-    color:
-        #aaa;
-
-    margin-top:
-        7px;
-
-}
-
-
-.research-editor input,
-.research-editor select,
-.research-editor textarea {
-
-    width:
-        100%;
-
-    background:
-        #070707;
-
-    color:
-        #fff;
-
-    border:
-        1px solid #292929;
-
-    border-radius:
-        10px;
-
-    padding:
-        13px;
-
-    outline:
-        none;
-
-}
-
-
-.research-editor textarea {
-
-    min-height:
-        330px;
-
-    resize:
-        vertical;
-
-    line-height:
-        1.6;
-
-}
-
-
-.editor-buttons {
-
-    display:
-        flex;
-
-    gap:
-        10px;
-
-    margin-top:
-        8px;
-
-}
-
-
-.editor-buttons button {
-
-    background:
-        transparent;
-
-    border:
-        1px solid var(--line);
-
-    padding:
-        10px 16px;
-
-    border-radius:
-        10px;
-
-    cursor:
-        pointer;
-
-}
-
-
-.primary-button {
-
-    background:
-        #fff !important;
-
-    color:
-        #000 !important;
-
-    border-color:
-        #fff !important;
-
-}
-
-
-.research-feed {
-
-    display:
-        grid;
-
-    gap:
-        15px;
-
-}
-
-
-.research-item {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        15px;
-
-    padding:
-        22px;
-
-}
-
-
-.research-item h3 {
-
-    margin:
-        0 0 7px;
-
-}
-
-
-.research-meta {
-
-    color:
-        #777;
-
-    font-size:
-        .82rem;
-
-}
-
-
-.research-body {
-
-    margin-top:
-        15px;
-
-    color:
-        #ccc;
-
-    white-space:
-        pre-wrap;
-
-    line-height:
-        1.7;
-
-}
-
-
-/* ================= FOOTER ================= */
-
-
-footer {
-
-    border-top:
-        1px solid var(--line);
-
-    padding:
-        30px 5%;
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    color:
-        #777;
-
-    font-size:
-        .85rem;
-
-}
-
-
-/* ================= MOBILE ================= */
-
-
-@media (max-width: 800px) {
-
-    .main-cards,
-    .course-grid {
-
-        grid-template-columns:
-            1fr;
-
+    .app {
+        width: 90%;
+        padding: 30px 0;
     }
-
-
-    .lesson-layout {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .lesson-nav {
-
-        position:
-            static;
-
-    }
-
-
-    .topbar {
-
-        height:
-            auto;
-
-        padding:
-            16px 4%;
-
-        gap:
-            12px;
-
-        flex-direction:
-            column;
-
-    }
-
-
-    nav {
-
-        flex-wrap:
-            wrap;
-
-        justify-content:
-            center;
-
-    }
-
 
     .hero h1 {
-
-        font-size:
-            3rem;
-
-    }
-
-
-    footer {
-
-        flex-direction:
-            column;
-
-        gap:
-            10px;
-
+        font-size: 34px;
+        letter-spacing: 4px;
     }
 
 }
