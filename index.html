@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,195 +12,222 @@
 
 <body>
 
-    <main class="app">
+<main class="app">
 
-        <section class="hero">
+    <!-- ================= HOME ================= -->
 
-            <h1>ADV RESEARCH</h1>
+    <section class="hero">
 
-            <p class="subtitle">
-                Mathematics • Physics • Research
-            </p>
+        <h1>ADV RESEARCH</h1>
 
-            <p class="quote">
-                "God does not play dice with the universe."
-                <span>— Einstein</span>
-            </p>
+        <p class="subtitle">
+            Mathematics • Physics • Research
+        </p>
 
-            <div class="main-buttons">
+        <p class="quote">
+            "God does not play dice with the universe."
+            <span>— Einstein</span>
+        </p>
 
-                <button onclick="openSection('mathematics')">
-                    MATHEMATICS
-                </button>
+        <div class="main-buttons">
 
-                <button onclick="openSection('physics')">
-                    PHYSICS
-                </button>
-
-                <button onclick="openSection('research')">
-                    RESEARCH
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section class="featured">
-
-            <h2>FEATURED RESEARCH</h2>
-
-            <div class="research-card">
-
-                <h3>
-                    The Euler–Lagrange Equation
-                </h3>
-
-                <p>Classical Mechanics</p>
-
-                <span>Yassine Bechir Dallel</span>
-
-                <button>
-                    READ RESEARCH →
-                </button>
-
-            </div>
-
-
-            <div class="research-card">
-
-                <h3>
-                    Complex Analysis and Residues
-                </h3>
-
-                <p>Mathematical Physics</p>
-
-                <span>Yassine Bechir Dallel</span>
-
-                <button>
-                    READ RESEARCH →
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- MATHEMATICS PAGE -->
-
-        <section id="mathematics" class="page">
-
-            <button class="back"
-                    onclick="goHome()">
-                ← BACK
+            <button onclick="openSection('mathematics')">
+                MATHEMATICS
             </button>
 
-            <h2>MATHEMATICS</h2>
-
-            <div class="chapter-grid">
-
-                <button class="chapter">
-                    CALCULUS
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    REAL ANALYSIS
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    COMPLEX ANALYSIS
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    LINEAR ALGEBRA
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    TOPOLOGY
-                    <span>OPEN →</span>
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- PHYSICS PAGE -->
-
-        <section id="physics" class="page">
-
-            <button class="back"
-                    onclick="goHome()">
-                ← BACK
+            <button onclick="openSection('physics')">
+                PHYSICS
             </button>
 
-            <h2>PHYSICS</h2>
-
-            <div class="chapter-grid">
-
-                <button class="chapter">
-                    CLASSICAL MECHANICS
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    QUANTUM MECHANICS
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    RELATIVITY
-                    <span>OPEN →</span>
-                </button>
-
-                <button class="chapter">
-                    ELECTROMAGNETISM
-                    <span>OPEN →</span>
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- RESEARCH PAGE -->
-
-        <section id="research" class="page">
-
-            <button class="back"
-                    onclick="goHome()">
-                ← BACK
+            <button onclick="openSection('research')">
+                RESEARCH
             </button>
 
-            <h2>RESEARCH</h2>
+        </div>
 
-            <div class="research-box">
-
-                <input
-                    type="text"
-                    placeholder="Research title"
-                >
-
-                <textarea
-                    placeholder="Write your research, derivation or conjecture..."
-                ></textarea>
-
-                <button>
-                    SAVE RESEARCH
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
+    </section>
 
 
-    <script src="script.js"></script>
+    <!-- ================= FEATURED RESEARCH ================= -->
+
+    <section class="featured">
+
+        <h2>FEATURED RESEARCH</h2>
+
+        <div class="research-card">
+
+            <h3>The Euler–Lagrange Equation</h3>
+
+            <p>Classical Mechanics</p>
+
+            <span>Yassine Bechir Dallel</span>
+
+            <button>
+                READ RESEARCH →
+            </button>
+
+        </div>
+
+
+        <div class="research-card">
+
+            <h3>Complex Analysis and Residues</h3>
+
+            <p>Mathematical Physics</p>
+
+            <span>Yassine Bechir Dallel</span>
+
+            <button>
+                READ RESEARCH →
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MATHEMATICS ================= -->
+
+    <section id="mathematics" class="page">
+
+        <button class="back" onclick="goHome()">
+            ← BACK
+        </button>
+
+        <h2>MATHEMATICS</h2>
+
+        <div class="chapter-grid">
+
+            <button class="chapter" onclick="openCalculus()">
+                CALCULUS
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                REAL ANALYSIS
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                COMPLEX ANALYSIS
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                LINEAR ALGEBRA
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                TOPOLOGY
+                <span>OPEN →</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CALCULUS ================= -->
+
+    <section id="calculus" class="page">
+
+        <button class="back"
+                onclick="openSection('mathematics')">
+
+            ← BACK TO MATHEMATICS
+
+        </button>
+
+        <div id="calculusContent">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PHYSICS ================= -->
+
+    <section id="physics" class="page">
+
+        <button class="back" onclick="goHome()">
+            ← BACK
+        </button>
+
+        <h2>PHYSICS</h2>
+
+        <div class="chapter-grid">
+
+            <button class="chapter">
+                CLASSICAL MECHANICS
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                QUANTUM MECHANICS
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                RELATIVITY
+                <span>OPEN →</span>
+            </button>
+
+            <button class="chapter">
+                ELECTROMAGNETISM
+                <span>OPEN →</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= RESEARCH ================= -->
+
+    <section id="research" class="page">
+
+        <button class="back" onclick="goHome()">
+            ← BACK
+        </button>
+
+        <h2>RESEARCH</h2>
+
+        <div class="research-box">
+
+            <input
+                type="text"
+                placeholder="Research title"
+            >
+
+            <textarea
+                placeholder="Write your research, derivation or conjecture..."
+            ></textarea>
+
+            <button>
+                SAVE RESEARCH
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- IMPORTANT: calculus first -->
+
+<script src="calculus.js"></script>
+
+<!-- Then the main app -->
+
+<script src="script.js"></script>
+
 
 </body>
 </html>
