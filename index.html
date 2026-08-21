@@ -1,722 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ADV RESEARCH</title>
 
-    <link rel="stylesheet"
-          href="style.css">
-
-
-    <!-- MathJax -->
-
-    <script>
-
-        window.MathJax = {
-
-            tex: {
-
-                inlineMath: [
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ],
-
-                displayMath: [
-                    ['$$', '$$'],
-                    ['\\[', '\\]']
-                ]
-
-            }
-
-        };
-
-    </script>
-
-
-    <script async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <main class="app">
 
-<header>
+        <section class="hero">
 
-    <div class="logo">
-        ADV RESEARCH
-    </div>
+            <h1>ADV RESEARCH</h1>
 
-
-    <nav>
-
-        <button onclick="showPage('home')">
-            Home
-        </button>
-
-        <button onclick="showPage('mathematics')">
-            Mathematics
-        </button>
-
-        <button onclick="showPage('physics')">
-            Physics
-        </button>
-
-        <button onclick="showPage('research')">
-            Research
-        </button>
-
-    </nav>
-
-</header>
-
-
-
-<main>
-
-
-<!-- ================================================= -->
-<!-- HOME -->
-<!-- ================================================= -->
-
-<section id="home"
-         class="page active">
-
-
-    <div class="hero">
-
-        <h1>
-            ADV RESEARCH
-        </h1>
-
-
-        <p class="subtitle">
-            Mathematics • Physics • Research
-        </p>
-
-
-        <div class="quote">
-
-            "God does not play dice with the universe."
-
-            <span>
-                — Albert Einstein
-            </span>
-
-        </div>
-
-
-        <div class="researcher">
-
-            <h2>
-                Yassine Bechir Dallel
-            </h2>
-
-            <p>
-                Researcher & Programmer
+            <p class="subtitle">
+                Mathematics • Physics • Research
             </p>
 
-        </div>
+            <p class="quote">
+                "God does not play dice with the universe."
+                <span>— Einstein</span>
+            </p>
 
-    </div>
+            <div class="main-buttons">
 
+                <button onclick="openSection('mathematics')">
+                    MATHEMATICS
+                </button>
 
+                <button onclick="openSection('physics')">
+                    PHYSICS
+                </button>
 
-    <!-- SUBJECT BUTTONS -->
+                <button onclick="openSection('research')">
+                    RESEARCH
+                </button>
 
-    <h2 class="section-title">
-        Research Fields
-    </h2>
-
-
-    <div class="cards">
-
-
-        <div class="card"
-             onclick="showPage('mathematics')">
-
-            <div class="icon">
-                ∑
             </div>
 
-            <h2>
-                Mathematics
-            </h2>
-
-            <p>
-                Calculus, Real Analysis,
-                Complex Analysis, Linear Algebra,
-                Topology and Mathematical Physics.
-            </p>
-
-        </div>
+        </section>
 
 
+        <section class="featured">
 
-        <div class="card"
-             onclick="showPage('physics')">
+            <h2>FEATURED RESEARCH</h2>
 
-            <div class="icon">
-                ⚛
+            <div class="research-card">
+
+                <h3>
+                    The Euler–Lagrange Equation
+                </h3>
+
+                <p>Classical Mechanics</p>
+
+                <span>Yassine Bechir Dallel</span>
+
+                <button>
+                    READ RESEARCH →
+                </button>
+
             </div>
 
-            <h2>
-                Physics
-            </h2>
 
-            <p>
-                Classical Mechanics,
-                Quantum Mechanics,
-                Relativity and Mathematical Physics.
-            </p>
+            <div class="research-card">
 
-        </div>
+                <h3>
+                    Complex Analysis and Residues
+                </h3>
 
+                <p>Mathematical Physics</p>
 
-    </div>
+                <span>Yassine Bechir Dallel</span>
 
+                <button>
+                    READ RESEARCH →
+                </button>
 
+            </div>
 
-    <!-- FEATURED RESEARCH -->
+        </section>
 
-    <h2 class="section-title">
-        Featured Research
-    </h2>
 
+        <!-- MATHEMATICS PAGE -->
 
-    <div id="featuredResearch">
+        <section id="mathematics" class="page">
 
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- MATHEMATICS -->
-<!-- ================================================= -->
-
-<section id="mathematics"
-         class="page">
-
-
-    <button class="back-button"
-            onclick="showPage('home')">
-
-        ← Back
-
-    </button>
-
-
-    <h1>
-        Mathematics
-    </h1>
-
-
-    <p class="intro">
-
-        Deep mathematical courses,
-        theories, proofs and original work.
-
-    </p>
-
-
-
-    <div class="topic-grid">
-
-
-        <!-- CALCULUS -->
-
-        <div class="topic"
-             onclick="openCourse('calculus')">
-
-            <h2>
-                Calculus
-            </h2>
-
-            <p>
-
-                Limits, differentiation,
-                integration, sequences,
-                infinite series and advanced calculus.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- REAL ANALYSIS -->
-
-        <div class="topic">
-
-            <h2>
-                Real Analysis
-            </h2>
-
-            <p>
-
-                Sequences, functions,
-                continuity, convergence,
-                metric spaces and rigorous proofs.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- COMPLEX ANALYSIS -->
-
-        <div class="topic">
-
-            <h2>
-                Complex Analysis
-            </h2>
-
-            <p>
-
-                Complex functions,
-                holomorphic functions,
-                contour integration,
-                residues and singularities.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- LINEAR ALGEBRA -->
-
-        <div class="topic">
-
-            <h2>
-                Linear Algebra
-            </h2>
-
-            <p>
-
-                Vector spaces,
-                linear transformations,
-                eigenvalues, eigenvectors
-                and operators.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- TOPOLOGY -->
-
-        <div class="topic">
-
-            <h2>
-                Topology
-            </h2>
-
-            <p>
-
-                Open and closed sets,
-                metric spaces,
-                continuity,
-                compactness and connectedness.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- DIFFERENTIAL EQUATIONS -->
-
-        <div class="topic">
-
-            <h2>
-                Differential Equations
-            </h2>
-
-            <p>
-
-                ODEs, PDEs,
-                boundary-value problems,
-                wave equations and mathematical physics.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- COURSE PAGE -->
-<!-- ================================================= -->
-
-<section id="coursePage"
-         class="page">
-
-
-    <button class="back-button"
-            onclick="showPage('mathematics')">
-
-        ← Mathematics
-
-    </button>
-
-
-    <div id="courseContent">
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- PHYSICS -->
-<!-- ================================================= -->
-
-<section id="physics"
-         class="page">
-
-
-    <button class="back-button"
-            onclick="showPage('home')">
-
-        ← Back
-
-    </button>
-
-
-    <h1>
-        Physics
-    </h1>
-
-
-    <p class="intro">
-
-        Theoretical and mathematical physics.
-
-    </p>
-
-
-
-    <div class="topic-grid">
-
-
-        <div class="topic">
-
-            <h2>
-                Classical Mechanics
-            </h2>
-
-            <p>
-
-                Newtonian mechanics,
-                Lagrangian mechanics,
-                Hamiltonian mechanics,
-                action and symmetries.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="topic">
-
-            <h2>
-                Quantum Mechanics
-            </h2>
-
-            <p>
-
-                Schrödinger equation,
-                operators,
-                Hilbert spaces,
-                quantum states and observables.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="topic">
-
-            <h2>
-                Relativity
-            </h2>
-
-            <p>
-
-                Special relativity,
-                Lorentz transformations,
-                spacetime and relativistic dynamics.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="topic">
-
-            <h2>
-                Electromagnetism
-            </h2>
-
-            <p>
-
-                Maxwell equations,
-                electromagnetic fields,
-                waves and potentials.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="topic">
-
-            <h2>
-                Mathematical Physics
-            </h2>
-
-            <p>
-
-                Differential equations,
-                Fourier analysis,
-                complex analysis
-                and mathematical structures.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- RESEARCH -->
-<!-- ================================================= -->
-
-<section id="research"
-         class="page">
-
-
-    <button class="back-button"
-            onclick="showPage('home')">
-
-        ← Back
-
-    </button>
-
-
-    <h1>
-        Research Laboratory
-    </h1>
-
-
-    <p class="intro">
-
-        Write, save and develop your own research.
-
-    </p>
-
-
-
-    <div class="editor">
-
-
-        <label>
-            Research title
-        </label>
-
-
-        <input
-            id="researchTitle"
-            type="text"
-            placeholder="Enter research title..."
-        >
-
-
-
-        <label>
-            Research field
-        </label>
-
-
-        <select id="researchField">
-
-            <option>
-                Mathematics
-            </option>
-
-            <option>
-                Physics
-            </option>
-
-            <option>
-                Classical Mechanics
-            </option>
-
-            <option>
-                Quantum Mechanics
-            </option>
-
-            <option>
-                Complex Analysis
-            </option>
-
-            <option>
-                Other
-            </option>
-
-        </select>
-
-
-
-        <label>
-            Research content
-        </label>
-
-
-        <textarea
-            id="researchContent"
-            placeholder="Write your research here...
-
-You can use mathematical notation.
-
-Example:
-
-$$
-\frac{d}{dt}
-\left(
-\frac{\partial L}{\partial \dot q_i}
-\right)
--
-\frac{\partial L}{\partial q_i}
-=0
-$$
-
-Inline mathematics:
-
-$E=mc^2$
-">
-        </textarea>
-
-
-
-        <div class="editor-buttons">
-
-
-            <button
-                class="save-button"
-                onclick="saveResearch()">
-
-                💾 Save Research
-
+            <button class="back"
+                    onclick="goHome()">
+                ← BACK
             </button>
 
+            <h2>MATHEMATICS</h2>
+
+            <div class="chapter-grid">
+
+                <button class="chapter">
+                    CALCULUS
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    REAL ANALYSIS
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    COMPLEX ANALYSIS
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    LINEAR ALGEBRA
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    TOPOLOGY
+                    <span>OPEN →</span>
+                </button>
+
+            </div>
+
+        </section>
 
 
-            <button onclick="clearEditor()">
+        <!-- PHYSICS PAGE -->
 
-                Clear
+        <section id="physics" class="page">
 
+            <button class="back"
+                    onclick="goHome()">
+                ← BACK
             </button>
 
+            <h2>PHYSICS</h2>
+
+            <div class="chapter-grid">
+
+                <button class="chapter">
+                    CLASSICAL MECHANICS
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    QUANTUM MECHANICS
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    RELATIVITY
+                    <span>OPEN →</span>
+                </button>
+
+                <button class="chapter">
+                    ELECTROMAGNETISM
+                    <span>OPEN →</span>
+                </button>
+
+            </div>
+
+        </section>
 
 
-            <button onclick="showPage('home')">
+        <!-- RESEARCH PAGE -->
 
-                ← Back
+        <section id="research" class="page">
 
+            <button class="back"
+                    onclick="goHome()">
+                ← BACK
             </button>
 
+            <h2>RESEARCH</h2>
 
-        </div>
+            <div class="research-box">
 
+                <input
+                    type="text"
+                    placeholder="Research title"
+                >
 
-    </div>
+                <textarea
+                    placeholder="Write your research, derivation or conjecture..."
+                ></textarea>
 
+                <button>
+                    SAVE RESEARCH
+                </button>
 
+            </div>
 
-    <h2 class="section-title">
+        </section>
 
-        Saved Research
-
-    </h2>
-
-
-    <div id="researchList">
-
-    </div>
-
-
-</section>
-
-
-</main>
+    </main>
 
 
-
-<footer>
-
-
-    <p>
-        ADV RESEARCH
-    </p>
-
-
-    <p>
-
-        Researcher & Programmer:
-        Yassine Bechir Dallel
-
-    </p>
-
-
-</footer>
-
-
-
-<!-- ================================================= -->
-<!-- COURSE FILE -->
-<!-- ================================================= -->
-
-<script src="calculus.js"></script>
-
-
-<!-- MAIN JAVASCRIPT -->
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
-
 </html>
